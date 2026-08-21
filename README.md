@@ -1,7 +1,7 @@
 ## Title
-> Your project title
+> Beauty Provider
 
 ## Team Members
-> Team Member #1 name
+> Jordan Nolte
 
-> Team Member #2 name
+> Alexis Alcaraz
