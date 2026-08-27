@@ -1,5 +1,5 @@
 ## Title
-> Beauty Provider
+> Salon Searcher
 
 ## Team Members
 > Jordan Nolte
