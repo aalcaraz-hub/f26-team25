@@ -22,12 +22,7 @@
     3. Subscribe to available services - <how will your app do this?>.
     4. Write reviews for subscribed services - <how will your app do this?>.
 2. Provider (the user with the provider role):
-    1. Create/modify/remove provider profile - .
-    2. Create services - .
-    3. View customer statistics -  .
-    4. Reply to reviews - .
-3. SysAdmin (the user with the admin role if applicable):
-    1. Manage user access - .
-    2. Moderate services - .
-    3. Moderate reviews - .
-    4. View usage statistics - .
+    1. Create/modify/remove provider profile - Static non API or database transitions from creating your profile to modifying to removing to simplify coding    process.
+    2. Create services - Same as above where there are static transitions for creating the services from the modifying profile page.
+    3. View customer statistics - Create average rating under the providers profile and a separate page for customers to provide reviews. 
+    4. Reply to reviews - Implement a reply function for providers to resolve issues and provide context.
