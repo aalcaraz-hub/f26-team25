@@ -1,12 +1,12 @@
 ## Title
-> Project Title
+> SalonSearcher
 
 ## Team Members
-> Team Member 1
+> Alexis Alcaraz
 
  
 
-> Team Member 2
+> Jordan Nolte
 
  
 
@@ -16,11 +16,13 @@
 > 
 
 ## App Functions
-1. Customer (the user with the customer role):
-    1. Create/modify customer profile - <how will your app do this?>
-    2. View available services - <how will your app do this?>.
-    3. Subscribe to available services - <how will your app do this?>.
-    4. Write reviews for subscribed services - <how will your app do this?>.
+1. Customer (Alexis Alcaraz):
+    1. Create/modify customer profile - Customers can register an account by entering their full name, and phone number or email address. They can select the beauty services they are interested in such as manicures, hair, facials, waxing, lashes, etc. (Will provide filtered options based on customer selections.
+    2. View available services - Customers can browse beauty professionals based on their specialization, services offered, budget, and experience. Will allow users to refine their search to find providers that match their prefences
+    3. Subscribe to available services - Customers can sign up for bi-weekly, monthly, or quarterly services at a discounted rate. Customers will also be able to purchase value pacakages that bundle multiple services together. This is not required to use SalonSearcher, they are also allowed to make one-time bookings whenever they choose
+    4. Write reviews for subscribed services - Any customer may log in and be able to leave a review from their account for a service that is in their history(to ensure reviews are verified), making it anonymous if they choose to do so. If subscribed to email or text notifications, after receiving a service, they will be sent a message asking if they would like to leave a review. They can then rate their provider 1-5 stars and optionally include a written comment or pictures
+    5.Book appointments - Customers can view a selected providers availability on a monthly calendar and choose an available date and time to book. If their desired time slot is unavailable, customers can join a waitlist and receive a notification if the requested time becomes available. Customers can also view their upcoming and previous appointments through their account dashboard.
+    
 2. Provider (the user with the provider role):
     1. Create/modify/remove provider profile - Static non API or database transitions from creating your profile to modifying to removing to simplify coding    process.
     2. Create services - Same as above where there are static transitions for creating the services from the modifying profile page.
