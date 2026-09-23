@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SalonSearcher - Find a Provider</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f6;
+            color: #333;
+        }
+        nav {
+            background-color: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #b76e79;
+        }
+        nav a {
+            color: #444;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+        nav a:hover {
+            color: #b76e79; 
+        }
+        .page-header {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+        .page-header h1{
+            color: #5a4145;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .page-header p {
+            color:#6b5a5d;
+        }
+        .filters {
+            background: white;
+            max-width: 1000px;
+            margin: 0 auto 35px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .filters input, .filters select {
+            flex: 1;
+            min-width: 180px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 14px;
+        }
+        .filter-button {
+            background-color: #b76e79;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        .providers {
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 20px 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            gap: 25px;
+        }
+        .provider-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        .provider-card h2 {
+            color: #b76e79;
+            margin-bottom: 8px;
+        }
+        .rating {
+            color: #b76e79;
+            margin-bottom: 12px;
+        }
+        .provider-card p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .view-button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 7px;
+            background-color: #f1cbd0;
+            color: #5a4145;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .view-button:hover {
+            background-color: #e7b3ba;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #5a4145;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <div class="logo">SalonSearcher</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="browse.html">Find a Provider</a>
+            <a href="profile.html">My Profile</a>
+            <a href="login.html">Create Account</a>
+        </div>
+    </nav>
+    <section class="page-header">
+        <h1>Find a Beauty Professional</h1>
+        <p>Browse providers and find the right service for you.</p>
+    </section>
+    <div class="filters">
+        <input type="text" placeholder="Search by service or provider">
+        <select>
+            <option>All Services</option>
+            <option>Manicurists</option>
+            <option>Estheticians</option>
+            <option>Cosmotologists</option>
+        </select>
+        <select>
+            <option>Any Location</option>
+            <option>Within 5 miles</option>
+            <option>Within 10 miles</option>
+            <option>Within 25 miles</option>
+        </select>
+        <button class="filter-button">Search</button>
+    </div>
+    <section class="providers">
+        <div class="provider-card">
+            <div class="provider-card">
+                <h2>Heavenly Hair Studio</h2>
+                <div class="rating">***** 4.9</div>
+                <p><strong>Services: </strong>Haircuts, Color, Blowouts</p>
+                <p><strong>Location: </strong>Greensboro, NC</p>
+                <button class="view-button"onclick="window.location.href='provider.html'">View Profile</button>
+            </div>
+            <div class="provider-card">
+                <h2>Nail'd It</h2>
+                <div class="rating">***** 4.7</div>
+                <p><strong>Services: </strong>Russian manicures, Nail Extensions, Basic pedicures, Deluxe Pedicures</p>
+                <p><strong>Location: </strong>Greensboro, NC</p>
+                <button class="view-button"onclick="window.location.href='provider.html'">View Profile</button>
+            </div>
+            <div class="provider-card">
+                <h2>Glass Skin Studio</h2>
+                <div class="rating">***** 4.8</div>
+                <p><strong>Services: </strong>Facials, Microdermabrasion, Waxing</p>
+                <p><strong>Location: </strong>Greensboro, NC</p>
+                <button class="view-button"onclick="window.location.href='provider.html'">View Profile</button>
+            </div>
+    </section>
+    <footer>
+        <p>2026 SalonSearcher</p>
+    </footer>
+  </body>
+</html>

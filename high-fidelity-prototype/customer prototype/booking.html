@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SalonSearcher - Book Appointment</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f6;
+            color: #333;
+        }
+        nav {
+            background-color: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #b76e79;
+        }
+        nav a {
+            color: #444;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+        nav a:hover {
+            color: #b76e79; 
+        }
+        .booking-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .booking-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #5a4145;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .provider {
+            background-color: #fff0f2;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .provider h2 {
+            color: #b76e79;
+            margin-bottom: 5px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color:#5a4145
+        }
+        select, input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+        .row .form-group {
+            flex: 1;
+        }
+        .confirm-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #b76e79;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .confirm-button:hover {
+            background-color: #965761;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #5a4145;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <div class="logo">SalonSearcher</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="browse.html">Find a Provider</a>
+            <a href="profile.html">My Profile</a>
+            <a href="login.html">Create Account</a>
+        </div>
+    </nav>
+    <main class="booking-container">
+        <div class="booking-card">
+            <h1>Book an Appointment</h1>
+            <p class="subtitle">Choose a service, date, and available time.</p>
+            <div class="provider">
+                <h2>Heavenly Hair Studio</h2>
+                <p>Greensboro, NC</p>
+            </div>
+            <div class="form-group">
+                <label for="service">Choose a service</label>
+                <select id="service">
+                    <option>Haircut & Blowdry - $70</option>
+                    <option>Hair Color - $300</option>
+                    <option>Blowout - $55</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Choose a date</label>
+                <input type="date" id="date">
+            </div>
+            <div class="form-group">
+                <label for="time">Choose a time</label>
+                <select id="time">
+                    <option>9:00 AM</option>
+                    <option>10:30 AM</option>
+                    <option>12:00 PM</option>
+                    <option>1:30 PM</option>
+                    <option>3:00 PM</option>
+                    <option>4:30 PM</option>
+                </select>
+            </div>
+        </div>
+        <button class="confirm-button" onclick="window.location.href='confirmation.html'">Confirm Appointment</button>
+        </div>
+    </main>
+    <footer>
+        <p>2026 SalonSearcher</p>
+    </footer>
+  </body>
+</html>
