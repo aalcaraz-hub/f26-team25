@@ -23,7 +23,7 @@
     4. Write reviews for subscribed services - Any customer may log in and be able to leave a review from their account for a service that is in their history(to ensure reviews are verified), making it anonymous if they choose to do so. If subscribed to email or text notifications, after receiving a service, they will be sent a message asking if they would like to leave a review. They can then rate their provider 1-5 stars and optionally include a written comment or pictures
     5.Book appointments - Customers can view a selected providers availability on a monthly calendar and choose an available date and time to book. If their desired time slot is unavailable, customers can join a waitlist and receive a notification if the requested time becomes available. Customers can also view their upcoming and previous appointments through their account dashboard.
     
-2. Provider (the user with the provider role):
+2. Provider (Jordan Nolte):
     1. Create/modify/remove profile: As a provider, I want to create, modify, and remove my profile, so that I can keep my business information accurate and up to date.
     2. Create services: As a provider, I want to create and manage the services I offer, so that customers know what I provide and at what price.
     3. View customer statistics: As a provider, I want to view my average rating and customer reviews, so that I can track how satisfied my customers are.
