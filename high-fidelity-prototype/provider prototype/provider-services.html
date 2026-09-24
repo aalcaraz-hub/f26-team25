@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SalonSearcher - Manage Services</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f6;
+            color: #333;
+        }
+        nav {
+            background-color: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #b76e79;
+        }
+        nav a {
+            color: #444;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+        nav a:hover {
+            color: #b76e79; 
+        }
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #5a4145;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+        }
+        .card h2 {
+            color: #5a4145;
+            margin-bottom: 20px;
+        }
+        .service {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #fff8f6;
+            border-radius: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .service-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        .price {
+            font-weight: bold;
+            color: #5a4145;
+        }
+        .service-actions button {
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 8px;
+        }
+        .edit-btn {
+            background-color: #f1cbd0;
+            color: #5a4145;
+        }
+        .edit-btn:hover {
+            background-color: #e7b3ba;
+        }
+        .remove-btn {
+            background-color: #eee;
+            color: #888;
+        }
+        .remove-btn:hover {
+            background-color: #ddd;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color:#5a4145
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+        .row .form-group {
+            flex: 1;
+        }
+        .add-btn, .save-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #c97894;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .add-btn:hover, .save-btn:hover {
+            background: #b56782;
+        }
+        .availability-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .availability-row:last-of-type {
+            border-bottom: none;
+        }
+        .availability-row label {
+            margin: 0;
+            width: 110px;
+        }
+        .availability-row select {
+            flex: 1;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #5a4145;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <div class="logo">SalonSearcher</div>
+        <div>
+            <a href="../index.html">Home</a>
+            <a href="provider-profile.html">My Profile</a>
+            <a href="provider-services.html">My Services</a>
+            <a href="provider-login.html">Provider Login</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Manage My Services</h1>
+        <p class="subtitle">Add services, update pricing, and set your availability</p>
+
+        <div class="card">
+            <h2>Current Services</h2>
+            <div class="service">
+                <div class="service-info">
+                    <h3>Haircut & Blowdry</h3>
+                    <p>Professional haircut of desired style and blowdry</p>
+                </div>
+                <div class="price">$70</div>
+                <div class="service-actions">
+                    <button class="edit-btn" onclick="alert('Edit Haircut & Blowdry')">Edit</button>
+                    <button class="remove-btn" onclick="alert('Removed Haircut & Blowdry')">Remove</button>
+                </div>
+            </div>
+            <div class="service">
+                <div class="service-info">
+                    <h3>Hair Color</h3>
+                    <p>Custom color and styling</p>
+                </div>
+                <div class="price">$300</div>
+                <div class="service-actions">
+                    <button class="edit-btn" onclick="alert('Edit Hair Color')">Edit</button>
+                    <button class="remove-btn" onclick="alert('Removed Hair Color')">Remove</button>
+                </div>
+            </div>
+            <div class="service">
+                <div class="service-info">
+                    <h3>Blowout</h3>
+                    <p>Shampoo, conditioning-treatment, and blowout</p>
+                </div>
+                <div class="price">$55</div>
+                <div class="service-actions">
+                    <button class="edit-btn" onclick="alert('Edit Blowout')">Edit</button>
+                    <button class="remove-btn" onclick="alert('Removed Blowout')">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Add a New Service</h2>
+            <div class="form-group">
+                <label for="serviceName">Service Name</label>
+                <input type="text" id="serviceName" placeholder="e.g. Balayage">
+            </div>
+            <div class="form-group">
+                <label for="serviceDesc">Description</label>
+                <textarea id="serviceDesc" placeholder="Briefly describe this service"></textarea>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="servicePrice">Price</label>
+                    <input type="number" id="servicePrice" placeholder="$">
+                </div>
+                <div class="form-group">
+                    <label for="serviceDuration">Duration</label>
+                    <select id="serviceDuration">
+                        <option>30 minutes</option>
+                        <option>45 minutes</option>
+                        <option>60 minutes</option>
+                        <option>90 minutes</option>
+                    </select>
+                </div>
+            </div>
+            <button class="add-btn" onclick="alert('Service added!')">Add Service</button>
+        </div>
+
+        <div class="card">
+            <h2>Set Your Availability</h2>
+            <div class="availability-row">
+                <label><input type="checkbox" checked> Monday</label>
+                <select>
+                    <option>9:00 AM</option>
+                    <option selected>10:00 AM</option>
+                </select>
+                <span>to</span>
+                <select>
+                    <option>4:30 PM</option>
+                    <option selected>5:00 PM</option>
+                </select>
+            </div>
+            <div class="availability-row">
+                <label><input type="checkbox" checked> Tuesday</label>
+                <select>
+                    <option selected>9:00 AM</option>
+                </select>
+                <span>to</span>
+                <select>
+                    <option selected>5:00 PM</option>
+                </select>
+            </div>
+            <div class="availability-row">
+                <label><input type="checkbox" checked> Wednesday</label>
+                <select>
+                    <option selected>9:00 AM</option>
+                </select>
+                <span>to</span>
+                <select>
+                    <option selected>5:00 PM</option>
+                </select>
+            </div>
+            <div class="availability-row">
+                <label><input type="checkbox" checked> Thursday</label>
+                <select>
+                    <option selected>9:00 AM</option>
+                </select>
+                <span>to</span>
+                <select>
+                    <option selected>5:00 PM</option>
+                </select>
+            </div>
+            <div class="availability-row">
+                <label><input type="checkbox" checked> Friday</label>
+                <select>
+                    <option selected>9:00 AM</option>
+                </select>
+                <span>to</span>
+                <select>
+                    <option selected>3:00 PM</option>
+                </select>
+            </div>
+            <div class="availability-row">
+                <label><input type="checkbox"> Saturday</label>
+                <select>
+                    <option>9:00 AM</option>
+                </select>
+                <span>to</span>
+                <select>
+                    <option>1:00 PM</option>
+                </select>
+            </div>
+            <div class="availability-row">
+                <label><input type="checkbox"> Sunday</label>
+                <select>
+                    <option>Closed</option>
+                </select>
+                <span>to</span>
+                <select>
+                    <option>Closed</option>
+                </select>
+            </div>
+            <button class="save-btn" onclick="alert('Availability saved!')">Save Availability</button>
+        </div>
+    </div>
+    <footer>
+        <p>2026 SalonSearcher</p>
+    </footer>
+  </body>
+</html>
