@@ -81,26 +81,49 @@
   ```
 
 ### 2.2 Provider Stories
-- **US-20 — <short title>**  
-  _Story:_ As a provider, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-  
-- **US-21 — <short title>**  
-  _Story:_ As a provider, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
 
+- **US‑1 — Create and customize profile**  
+  _Story:_ As a provider, I want to create and customize my profile so that customers can learn about my business and the services I offer.
+  _Acceptance:_
+```gherkin
+  Scenario: Create and customize provider profile
+    Given I am a registered provider
+    When  I fill in my business details and save my profile
+    Then  my updated profile should be saved
+    And   customers should be able to view my profile information
+```
+
+- **US‑2 — Respond to reviews**  
+  _Story:_ As a provider, I want to respond to my reviews so that I can engage with customer feedback and build trust with future clients.
+  _Acceptance:_
+```gherkin
+  Scenario: Respond to a customer review
+    Given I am logged in as a provider and have received a customer review
+    When  I submit a response to the review
+    Then  my response should be saved and displayed alongside the review
+```
+
+- **US‑3 — Manage services and pricing**  
+  _Story:_ As a provider, I want to add, edit, and remove the services I offer along with their prices so that customers see accurate offerings when browsing my profile.
+  _Acceptance:_
+```gherkin
+  Scenario: Add a new service
+    Given I am logged in as a provider
+    When  I enter a new service name, description, price, and duration
+    Then  the service should be added to my list of offered services
+    And   customers should be able to view it on my profile
+```
+
+- **US‑4 — Manage availability**  
+  _Story:_ As a provider, I want to set and update my availability so that customers can view accurate open time slots when booking an appointment.
+  _Acceptance:_
+```gherkin
+  Scenario: Update weekly availability
+    Given I am logged in as a provider
+    When  I set my available days and hours and save
+    Then  my availability should be updated
+    And   customers should see my current availability when searching for an appointment
+```
 ## 3. Non‑Functional Requirements (make them measurable)
 - **Performance:** description 
 - **Availability/Reliability:** description
