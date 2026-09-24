@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SalonSearcher - Log In</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f6;
+            color: #333;
+        }
+        nav {
+            background-color: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #b76e79;
+        }
+        nav a {
+            color: #444;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+        nav a:hover {
+            color: #b76e79;
+        }
+        .container {
+            max-width: 900px;
+            margin: 55px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #5a4145;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        .choice-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .choice-card {
+            background: white;
+            width: 320px;
+            padding: 35px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        .choice-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background-color: #f1cbd0;
+            color: #5a4145;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .choice-card h2 {
+            color: #5a4145;
+            margin-bottom: 10px;
+        }
+        .choice-card p {
+            color: #666;
+            margin-bottom: 22px;
+            min-height: 65px;
+        }
+        .choice-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .customer-button {
+            background-color: #b76e79;
+        }
+        .customer-button:hover {
+            background-color: #965761;
+        }
+        .provider-button {
+            background-color: #c97894;
+        }
+        .provider-button:hover {
+            background-color: #b56782;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #5a4145;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <div class="logo">SalonSearcher</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="customer-prototype/browse.html">Find a Provider</a>
+            <a href="customer-prototype/profile.html">My Profile</a>
+            <a href="login.html">Create Account</a>
+        </div>
+    </nav>
+    <main class="container">
+        <h1>Log In or Sign Up</h1>
+        <p class="subtitle">Tell us who you are so we can take you to the right place.</p>
+        <div class="choice-grid">
+            <div class="choice-card">
+                <div class="choice-icon">C</div>
+                <h2>I'm a Customer</h2>
+                <p>Browse beauty professionals, book appointments, and leave reviews.</p>
+                <button class="choice-button customer-button" onclick="window.location.href='customer-prototype/login.html'">Continue as Customer</button>
+            </div>
+            <div class="choice-card">
+                <div class="choice-icon">P</div>
+                <h2>I'm a Provider</h2>
+                <p>Showcase your services, manage your availability, and connect with new customers.</p>
+                <button class="choice-button provider-button" onclick="window.location.href='provider-prototype/provider-login.html'">Continue as Provider</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>2026 SalonSearcher</p>
+    </footer>
+  </body>
+</html>
