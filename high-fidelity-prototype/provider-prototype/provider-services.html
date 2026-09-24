@@ -74,6 +74,9 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+        .service-info {
+            flex: 1;
+        }
         .service-info p {
             color: #666;
             font-size: 14px;
@@ -176,7 +179,7 @@
     <nav>
         <div class="logo">SalonSearcher</div>
         <div>
-            <a href="../index.html">Home</a>
+            <a href="../login.html">Home</a>
             <a href="provider-profile.html">My Profile</a>
             <a href="provider-services.html">My Services</a>
             <a href="provider-login.html">Provider Login</a>
@@ -195,8 +198,8 @@
                 </div>
                 <div class="price">$70</div>
                 <div class="service-actions">
-                    <button class="edit-btn" onclick="alert('Edit Haircut & Blowdry')">Edit</button>
-                    <button class="remove-btn" onclick="alert('Removed Haircut & Blowdry')">Remove</button>
+                    <button class="edit-btn">Edit</button>
+                    <button class="remove-btn">Remove</button>
                 </div>
             </div>
             <div class="service">
@@ -206,8 +209,8 @@
                 </div>
                 <div class="price">$300</div>
                 <div class="service-actions">
-                    <button class="edit-btn" onclick="alert('Edit Hair Color')">Edit</button>
-                    <button class="remove-btn" onclick="alert('Removed Hair Color')">Remove</button>
+                    <button class="edit-btn">Edit</button>
+                    <button class="remove-btn">Remove</button>
                 </div>
             </div>
             <div class="service">
@@ -217,8 +220,8 @@
                 </div>
                 <div class="price">$55</div>
                 <div class="service-actions">
-                    <button class="edit-btn" onclick="alert('Edit Blowout')">Edit</button>
-                    <button class="remove-btn" onclick="alert('Removed Blowout')">Remove</button>
+                    <button class="edit-btn">Edit</button>
+                    <button class="remove-btn">Remove</button>
                 </div>
             </div>
         </div>
@@ -248,7 +251,7 @@
                     </select>
                 </div>
             </div>
-            <button class="add-btn" onclick="alert('Service added!')">Add Service</button>
+            <button class="add-btn">Add Service</button>
         </div>
 
         <div class="card">
@@ -325,7 +328,7 @@
                     <option>Closed</option>
                 </select>
             </div>
-            <button class="save-btn" onclick="alert('Availability saved!')">Save Availability</button>
+            <button class="save-btn">Save Availability</button>
         </div>
     </div>
     <footer>
