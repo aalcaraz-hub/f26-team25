@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SalonSearcher - Create Account</title>
+    <title>SalonSearcher - Provider Sign Up</title>
     <style>
         * {
             box-sizing: border-box;
@@ -15,7 +15,7 @@
             background-color: #fff8f6;
             color: #333;
         }
-         nav {
+        nav {
             background-color: #ffffff;
             padding: 18px 8%;
             display: flex;
@@ -24,21 +24,9 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
             font-size: 25px;
             font-weight: bold;
             color: #b76e79;
-        }
-        .logo img{
-            width: 45px;
-            height: 45px;
-            object-fit: contain;
-        }
-        .logo span {
-            display: flex;
-            align-items: center;
         }
         nav a {
             color: #444;
@@ -77,7 +65,7 @@
             font-weight: bold;
             color:#5a4145
         }
-        input {
+        input, select {
             width: 100%;
             padding: 13px;
             border: 1px solid #ddd;
@@ -104,6 +92,11 @@
             color: #888;
             font-size: 14px;
         }
+        .message a {
+            color: #b76e79;
+            font-weight: bold;
+            text-decoration: none;
+        }
         footer {
             text-align: center;
             padding: 25px;
@@ -115,37 +108,47 @@
   </head>
   <body>
     <nav>
-        <div class="logo"> <img src="S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
+        <div class="logo">SalonSearcher</div>
         <div>
-            <a href="index.html">Home</a>
-            <a href="browse.html">Find a Provider</a>
-            <a href="profile.html">My Profile</a>
-            <a href="login.html">Create Account</a>
+            <a href="../index.html">Home</a>
+            <a href="provider-profile.html">My Profile</a>
+            <a href="provider-services.html">My Services</a>
+            <a href="provider-login.html">Provider Login</a>
         </div>
     </nav>
     <div class="container">
-        <h1>Create Your Account</h1>
-        <p class="subtitle">Join SalonSearcher to find beauty providers and book appointments</p>
+        <h1>Create Your Provider Account</h1>
+        <p class="subtitle">Join SalonSearcher to showcase your services and get discovered by new customers</p>
         <div class="card">
-            <label for="name">Full Name</label>
+            <label for="business">Business Name</label>
+            <input type="text" id="business" placeholder="Enter your business name">
+            <label for="name">Owner Full Name</label>
             <input type="text" id="name" placeholder="Enter your full name">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
             <label for="phone">Phone Number</label>
             <input type="tel" id="phone" placeholder="Enter your phone number">
+            <label for="category">Category</label>
+            <select id="category">
+                <option>Cosmetologist</option>
+                <option>Manicurist</option>
+                <option>Esthetician</option>
+            </select>
             <label for="password">Password</label>
             <input type="password" id="password" placeholder="Create a password">
             <label for="confirmPassword">Confirm Password</label>
             <input type="password" id="confirmPassword" placeholder="Confirm your password">
-            <button class="create-btn" onclick="createAccount()">Create Account</button>
-            <p class="message">Your account will allow you to manage your profile, browse providers, book appointments, and leave reviews</p>
+            <button class="create-btn" onclick="createProviderAccount()">Create Provider Account</button>
+            <p class="message">Already have an account? <a href="provider-login.html">Log in</a></p>
         </div>
     </div>
     <footer>
-        <p>© 2026 SalonSearcher</p>
+        <p>2026 SalonSearcher</p>
     </footer>
     <script>
-        function createAccount() {
-            alert("Your account has been created!");
-            window.location.href = "profile.html";
+        function createProviderAccount() {
+            alert("Your provider account has been created!");
+            window.location.href = "provider-profile.html";
         }
     </script>
   </body>
