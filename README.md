@@ -24,7 +24,7 @@
     5.Book appointments - Customers can view a selected providers availability on a monthly calendar and choose an available date and time to book. If their desired time slot is unavailable, customers can join a waitlist and receive a notification if the requested time becomes available. Customers can also view their upcoming and previous appointments through their account dashboard.
     
 2. Provider (the user with the provider role):
-    1. Create/modify/remove provider profile - Static non API or database transitions from creating your profile to modifying to removing to simplify coding    process.
-    2. Create services - Same as above where there are static transitions for creating the services from the modifying profile page.
-    3. View customer statistics - Create average rating under the providers profile and a separate page for customers to provide reviews. 
-    4. Reply to reviews - Implement a reply function for providers to resolve issues and provide context.
+    1. (Create/modify/remove profile): As a provider, I want to create, modify, and remove my profile, so that I can keep my business information accurate and up to date.
+    2.(Create services): As a provider, I want to create and manage the services I offer, so that customers know what I provide and at what price.
+    3. (View customer statistics): As a provider, I want to view my average rating and customer reviews, so that I can track how satisfied my customers are.
+    4. (Reply to reviews): As a provider, I want to reply to customer reviews, so that I can resolve issues and provide context to future customers.
