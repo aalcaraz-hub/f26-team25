@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SalonSearcher - Create Account</title>
+    <title>SalonSearcher - Appointment Confirmation</title>
     <style>
         * {
             box-sizing: border-box;
@@ -49,60 +49,69 @@
         nav a:hover {
             color: #b76e79; 
         }
-        .container {
-            max-width: 850px;
-            margin: 45px auto;
+        .confirmation {
+            max-width: 650px;
+            margin: 70px auto;
             padding: 0 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 45px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        .check {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background-color: #f1cbd0;
+            color: #b76e79;
+            font-size: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         h1 {
             text-align: center;
             color: #5a4145;
             margin-bottom: 10px;
         }
-        .subtitle {
-            text-align: center;
-            color: #888;
+        .message {
+            color: #666;
             margin-bottom: 30px;
         }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        .details {
+            text-align: left;
+            background-color: #fff8f6;
+            padding: 22px;
+            border-radius: 10px;
             margin-bottom: 25px;
         }
-        label {
+        .details p:last-child {
+            margin-bottom: 0;
+        }
+        .details strong {
+            color:#5a4145;
+        }
+        .button {
             display: block;
-            margin: 17px 0 8px;
-            font-weight: bold;
-            color:#5a4145
-        }
-        input {
             width: 100%;
-            padding: 13px;
-            border: 1px solid #ddd;
-            border-radius: 7px;
-            font-size: 15px;
-        }
-        .create-btn {
-            width: 100%;
-            margin-top: 25px;
             padding: 14px;
+            margin-top: 10px;
             border: none;
             border-radius: 8px;
-            background: #c97894;
-            color: white;
-            font-size: 16px;
             cursor: pointer;
+            font-size: 15px;
         }
-        .create-btn:hover {
-            background: #b56782;
+        .primary {
+            background-color: #b76e79;
+            color: white;
         }
-        .message {
-            text-align: center;
-            margin-top: 20px;
-            color: #888;
-            font-size: 14px;
+        .secondary {
+            background-color: #f1cbd0;
+            color: #5a4145;
         }
         footer {
             text-align: center;
@@ -117,36 +126,30 @@
     <nav>
         <div class="logo"> <img src="S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
         <div>
-            <a href="../index.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="browse.html">Find a Provider</a>
             <a href="profile.html">My Profile</a>
             <a href="login.html">Create Account</a>
         </div>
     </nav>
-    <div class="container">
-        <h1>Create Your Account</h1>
-        <p class="subtitle">Join SalonSearcher to find beauty providers and book appointments</p>
+    <main class="confirmation">
         <div class="card">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="Enter your full name">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="Enter your phone number">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Create a password">
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" placeholder="Confirm your password">
-            <button class="create-btn" onclick="createAccount()">Create Account</button>
-            <p class="message">Your account will allow you to manage your profile, browse providers, book appointments, and leave reviews</p>
+            <div class="check">✓</div>
+            <h1>Appointment Confirmed!</h1>
+            <p class="message">Your appointment has been successfully booked.</p>
+            <div class="details">
+                <p><strong>Provider: </strong>Glass Skin Spa</p>
+                <p><strong>Service: </strong>Lash Extensions</p>
+                <p><strong>Date: </strong>October 11th, 2026</p>
+                <p><strong>Time: </strong>4:30 PM</p>
+                <p><strong>Location: </strong>Greensboro, NC</p>
+            </div>
+            <button class="button primary" onclick="window.location.href='profile.html'">View My Appointments</button>
+            <button class="button secondary" onclick="window.location.href='browse.html'">Find Another Provider</button>
         </div>
-    </div>
+    </main>
     <footer>
         <p>© 2026 SalonSearcher</p>
     </footer>
-    <script>
-        function createAccount() {
-            alert("Your account has been created!");
-            window.location.href = "profile.html";
-        }
-    </script>
   </body>
 </html>

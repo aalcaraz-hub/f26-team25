@@ -15,7 +15,7 @@
             background-color: #fff8f6;
             color: #333;
         }
-        nav {
+         nav {
             background-color: #ffffff;
             padding: 18px 8%;
             display: flex;
@@ -24,9 +24,21 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 25px;
             font-weight: bold;
             color: #b76e79;
+        }
+        .logo img{
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+        .logo span {
+            display: flex;
+            align-items: center;
         }
         nav a {
             color: #444;
@@ -111,7 +123,7 @@
   </head>
   <body>
     <nav>
-        <div class="logo">SalonSearcher</div>
+        <div class="logo"> <img src="S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
         <div>
             <a href="../index.html">Home</a>
             <a href="browse.html">Find a Provider</a>
@@ -125,22 +137,22 @@
         <div class="card">
             <div class="provider">
                 <h2>Heavenly Hair Studio</h2>
-                <p>Haircut & Blowdry | Greensboro, NC</p>
+                <p>Hair Color | Greensboro, NC</p>
             </div>
             <label for="rating">Your Rating</label>
             <select id="rating">
-                <option>***** 5 - Excellent</option>
-                <option>**** 4 - Great</option>
-                <option>*** 3 - Good</option>
-                <option>** 2 - Fair</option>
-                <option>* 1 - Poor</option>
+                <option>★★★★★ 5 - Excellent</option>
+                <option>★★★★☆ 4 - Great</option>
+                <option>★★★☆☆ 3 - Good</option>
+                <option>★★☆☆☆ 2 - Fair</option>
+                <option>★☆☆☆☆ 1 - Poor</option>
             </select>
             <label for="review">Your Review</label>
             <textarea id="review" placeholder="Tell us about your experience..."></textarea>
             <button class="submit-btn" onclick="submitReview()">Submit Review</button>
         </div>
     <footer>
-        <p>2026 SalonSearcher</p>
+        <p>© 2026 SalonSearcher</p>
     </footer>
     <script>
         function submitReview() {
