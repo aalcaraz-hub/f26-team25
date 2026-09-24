@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SalonSearcher - Create Account</title>
+    <title>SalonSearcher - Leave a Review</title>
     <style>
         * {
             box-sizing: border-box;
@@ -50,29 +50,43 @@
         .subtitle {
             text-align: center;
             color: #888;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
         .card {
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px rgba(180, 130,150, 0.12);
             margin-bottom: 25px;
+        }
+        .provider {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .provider h2 {
+            color: #b77991;
+            margin-bottom: 5px;
+        }
+        .provider p {
+            color: #888;
         }
         label {
             display: block;
-            margin: 17px 0 8px;
+            margin: 20px 0 8px;
             font-weight: bold;
-            color:#5a4145
         }
-        input {
+        select, textarea {
             width: 100%;
             padding: 13px;
             border: 1px solid #ddd;
-            border-radius: 7px;
+            border-radius: 8px;
             font-size: 15px;
         }
-        .create-btn {
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+        .submit-btn {
             width: 100%;
             margin-top: 25px;
             padding: 14px;
@@ -83,14 +97,8 @@
             font-size: 16px;
             cursor: pointer;
         }
-        .create-btn:hover {
+        .submit-btn:hover {
             background: #b56782;
-        }
-        .message {
-            text-align: center;
-            margin-top: 20px;
-            color: #888;
-            font-size: 14px;
         }
         footer {
             text-align: center;
@@ -105,34 +113,38 @@
     <nav>
         <div class="logo">SalonSearcher</div>
         <div>
-            <a href="index.html">Home</a>
+            <a href="../index.html">Home</a>
             <a href="browse.html">Find a Provider</a>
             <a href="profile.html">My Profile</a>
             <a href="login.html">Create Account</a>
         </div>
     </nav>
     <div class="container">
-        <h1>Create Your Account</h1>
-        <p class="subtitle">Join SalonSearcher to find beauty providers and book appointments</p>
+        <h1>Leave a Review</h1>
+        <p class="subtitle">Share your experience to help other customers</p>
         <div class="card">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="Enter your full name">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="Enter your phone number">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Create a password">
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" placeholder="Confirm your password">
-            <button class="create-btn" onclick="createAccount()">Create Account</button>
-            <p class="message">Your account will allow you to manage your profile, browse providers, book appointments, and leave reviews</p>
+            <div class="provider">
+                <h2>Heavenly Hair Studio</h2>
+                <p>Haircut & Blowdry | Greensboro, NC</p>
+            </div>
+            <label for="rating">Your Rating</label>
+            <select id="rating">
+                <option>***** 5 - Excellent</option>
+                <option>**** 4 - Great</option>
+                <option>*** 3 - Good</option>
+                <option>** 2 - Fair</option>
+                <option>* 1 - Poor</option>
+            </select>
+            <label for="review">Your Review</label>
+            <textarea id="review" placeholder="Tell us about your experience..."></textarea>
+            <button class="submit-btn" onclick="submitReview()">Submit Review</button>
         </div>
-    </div>
     <footer>
         <p>2026 SalonSearcher</p>
     </footer>
     <script>
-        function createAccount() {
-            alert("Your account has been created!");
+        function submitReview() {
+            alert("Thank you for your feedback!");
             window.location.href = "profile.html";
         }
     </script>
