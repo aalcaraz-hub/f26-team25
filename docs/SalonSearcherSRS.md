@@ -1,4 +1,3 @@
-
 # Requirements – SalonSearcher
 
 **Project Name:** SalonSearcher
