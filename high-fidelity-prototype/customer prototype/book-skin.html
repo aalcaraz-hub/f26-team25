@@ -24,9 +24,21 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 25px;
             font-weight: bold;
             color: #b76e79;
+        }
+        .logo img{
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+        .logo span {
+            display: flex;
+            align-items: center;
         }
         nav a {
             color: #444;
@@ -116,7 +128,7 @@
   </head>
   <body>
     <nav>
-        <div class="logo">SalonSearcher</div>
+        <div class="logo"> <img src="S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
         <div>
             <a href="index.html">Home</a>
             <a href="browse.html">Find a Provider</a>
@@ -129,15 +141,16 @@
             <h1>Book an Appointment</h1>
             <p class="subtitle">Choose a service, date, and available time.</p>
             <div class="provider">
-                <h2>Heavenly Hair Studio</h2>
+                <h2>Glass Skin Spa</h2>
                 <p>Greensboro, NC</p>
             </div>
             <div class="form-group">
                 <label for="service">Choose a service</label>
                 <select id="service">
-                    <option>Haircut & Blowdry - $70</option>
-                    <option>Hair Color - $300</option>
-                    <option>Blowout - $55</option>
+                    <option>Facials - $60</option>
+                    <option>Brow Wax - $30</option>
+                    <option>Arms & Legs Wax - $80</option>
+                    <option>Lash Extensions - $85+</option>
                 </select>
             </div>
             <div class="form-group">
@@ -156,11 +169,11 @@
                 </select>
             </div>
         </div>
-        <button class="confirm-button" onclick="window.location.href='confirmation.html'">Confirm Appointment</button>
+        <button class="confirm-button" onclick="window.location.href='confirmation2.html'">Confirm Appointment</button>
         </div>
     </main>
     <footer>
-        <p>2026 SalonSearcher</p>
+        <p>© 2026 SalonSearcher</p>
     </footer>
   </body>
 </html>

@@ -15,7 +15,7 @@
             background-color: #fff8f6;
             color: #333;
         }
-        nav {
+         nav {
             background-color: #ffffff;
             padding: 18px 8%;
             display: flex;
@@ -24,9 +24,21 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 25px;
             font-weight: bold;
             color: #b76e79;
+        }
+        .logo img{
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+        .logo span {
+            display: flex;
+            align-items: center;
         }
         nav a {
             color: #444;
@@ -114,6 +126,7 @@
         }
         .appointment {
             background-color: #fff8f6;
+            margin-bottom: 20px;
             padding: 20px;
             border-radius: 10px;
         }
@@ -143,7 +156,7 @@
   </head>
   <body>
     <nav>
-        <div class="logo">SalonSearcher</div>
+        <div class="logo"> <img src="S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
         <div>
             <a href="index.html">Home</a>
             <a href="browse.html">Find a Provider</a>
@@ -155,7 +168,7 @@
         <h1>My Profile</h1>
         <section class="card">
             <div class="profile-header">
-                <div class="avatar">Picture</div>
+                <div class="avatar">✿</div>
                 <div>
                     <h2>Alexis Alcaraz</h2>
                     <p>Customer Account</p>
@@ -168,24 +181,41 @@
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" value="(336) 305-8485">
+                <input type="tel" id="phone" value="(336) 303-8485">
             </div>
             <button class="save-button" onclick="alert('Your profile has been saved!')">Save Changes</button>
         </section>
         <section class="card">
-            <h2>Upcoming Appoints</h2>
+            <h2>Upcoming Appointments</h2>
             <div class="appointment">
                 <h3>Heavenly Hair Studio</h3>
-                <p><strong>Service: </strong>Haircut & Blowdry</p>
+                <p><strong>Service: </strong>Haircut</p>
                 <p><strong>Date: </strong>October 3rd, 2026</p>
-                <p><strong>Time: </strong>10:30AM</p>
+                <p><strong>Time: </strong>10:30 AM</p>
+                <p><strong>Location: </strong>Greensboro, NC</p>
+            </div>
+            <div class="appointment">
+                <h3>Glass Skin Spa</h3>
+                <p><strong>Service: </strong>Lash Extensions</p>
+                <p><strong>Date: </strong>October 11th, 2026</p>
+                <p><strong>Time: </strong>4:30 PM</p>
+                <p><strong>Location: </strong>Greensboro, NC</p>
+            </div>
+        </section>
+        <section class="card">
+            <h2>Past Appointments</h2>
+            <div class="appointment">
+                <h3>Heavenly Hair Studio</h3>
+                <p><strong>Service: </strong>Hair Color</p>
+                <p><strong>Date: </strong>September 19th, 2026</p>
+                <p><strong>Time: </strong>12:00 PM</p>
                 <p><strong>Location: </strong>Greensboro, NC</p>
                 <button class="review-button" onclick="window.location.href='review.html'">Leave a Review</button>
             </div>
         </section>
     </main>
     <footer>
-        <p>2026 SalonSearcher</p>
+        <p>© 2026 SalonSearcher</p>
     </footer>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SalonSearcher - Leave a Review</title>
+    <title>SalonSearcher - Appointment Confirmation</title>
     <style>
         * {
             box-sizing: border-box;
@@ -49,68 +49,69 @@
         nav a:hover {
             color: #b76e79; 
         }
-        .container {
-            max-width: 850px;
-            margin: 45px auto;
+        .confirmation {
+            max-width: 650px;
+            margin: 70px auto;
             padding: 0 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 45px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        .check {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background-color: #f1cbd0;
+            color: #b76e79;
+            font-size: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         h1 {
             text-align: center;
             color: #5a4145;
             margin-bottom: 10px;
         }
-        .subtitle {
-            text-align: center;
-            color: #888;
-            margin-bottom: 35px;
-        }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(180, 130,150, 0.12);
-            margin-bottom: 25px;
-        }
-        .provider {
-            text-align: center;
+        .message {
+            color: #666;
             margin-bottom: 30px;
         }
-        .provider h2 {
-            color: #b77991;
-            margin-bottom: 5px;
+        .details {
+            text-align: left;
+            background-color: #fff8f6;
+            padding: 22px;
+            border-radius: 10px;
+            margin-bottom: 25px;
         }
-        .provider p {
-            color: #888;
+        .details p:last-child {
+            margin-bottom: 0;
         }
-        label {
+        .details strong {
+            color:#5a4145;
+        }
+        .button {
             display: block;
-            margin: 20px 0 8px;
-            font-weight: bold;
-        }
-        select, textarea {
             width: 100%;
-            padding: 13px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 15px;
-        }
-        textarea {
-            min-height: 130px;
-            resize: vertical;
-        }
-        .submit-btn {
-            width: 100%;
-            margin-top: 25px;
             padding: 14px;
+            margin-top: 10px;
             border: none;
             border-radius: 8px;
-            background: #c97894;
-            color: white;
-            font-size: 16px;
             cursor: pointer;
+            font-size: 15px;
         }
-        .submit-btn:hover {
-            background: #b56782;
+        .primary {
+            background-color: #b76e79;
+            color: white;
+        }
+        .secondary {
+            background-color: #f1cbd0;
+            color: #5a4145;
         }
         footer {
             text-align: center;
@@ -131,34 +132,24 @@
             <a href="login.html">Create Account</a>
         </div>
     </nav>
-    <div class="container">
-        <h1>Leave a Review</h1>
-        <p class="subtitle">Share your experience to help other customers</p>
+    <main class="confirmation">
         <div class="card">
-            <div class="provider">
-                <h2>Heavenly Hair Studio</h2>
-                <p>Hair Color | Greensboro, NC</p>
+            <div class="check">✓</div>
+            <h1>Appointment Confirmed!</h1>
+            <p class="message">Your appointment has been successfully booked.</p>
+            <div class="details">
+                <p><strong>Provider: </strong>Glass Skin Spa</p>
+                <p><strong>Service: </strong>Lash Extensions</p>
+                <p><strong>Date: </strong>October 11th, 2026</p>
+                <p><strong>Time: </strong>4:30 PM</p>
+                <p><strong>Location: </strong>Greensboro, NC</p>
             </div>
-            <label for="rating">Your Rating</label>
-            <select id="rating">
-                <option>★★★★★ 5 - Excellent</option>
-                <option>★★★★☆ 4 - Great</option>
-                <option>★★★☆☆ 3 - Good</option>
-                <option>★★☆☆☆ 2 - Fair</option>
-                <option>★☆☆☆☆ 1 - Poor</option>
-            </select>
-            <label for="review">Your Review</label>
-            <textarea id="review" placeholder="Tell us about your experience..."></textarea>
-            <button class="submit-btn" onclick="submitReview()">Submit Review</button>
+            <button class="button primary" onclick="window.location.href='profile.html'">View My Appointments</button>
+            <button class="button secondary" onclick="window.location.href='browse.html'">Find Another Provider</button>
         </div>
+    </main>
     <footer>
         <p>© 2026 SalonSearcher</p>
     </footer>
-    <script>
-        function submitReview() {
-            alert("Thank you for your feedback!");
-            window.location.href = "profile.html";
-        }
-    </script>
   </body>
 </html>

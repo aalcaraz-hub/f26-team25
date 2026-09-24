@@ -15,7 +15,7 @@
             background-color: #fff8f6;
             color: #333;
         }
-        nav {
+         nav {
             background-color: #ffffff;
             padding: 18px 8%;
             display: flex;
@@ -24,9 +24,21 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 25px;
             font-weight: bold;
             color: #b76e79;
+        }
+        .logo img{
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+        .logo span {
+            display: flex;
+            align-items: center;
         }
         nav a {
             color: #444;
@@ -103,7 +115,7 @@
   </head>
   <body>
     <nav>
-        <div class="logo">SalonSearcher</div>
+        <div class="logo"> <img src="S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
         <div>
             <a href="index.html">Home</a>
             <a href="browse.html">Find a Provider</a>
@@ -128,7 +140,7 @@
         </div>
     </div>
     <footer>
-        <p>2026 SalonSearcher</p>
+        <p>© 2026 SalonSearcher</p>
     </footer>
     <script>
         function createAccount() {

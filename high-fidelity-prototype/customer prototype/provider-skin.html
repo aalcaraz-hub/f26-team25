@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SalonSearcher - Provider Profile</title>
+    <title>SalonSearcher - Provider3 Profile</title>
     <style>
         * {
             box-sizing: border-box;
@@ -15,7 +15,7 @@
             background-color: #fff8f6;
             color: #333;
         }
-        nav {
+         nav {
             background-color: #ffffff;
             padding: 18px 8%;
             display: flex;
@@ -24,9 +24,21 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 25px;
             font-weight: bold;
             color: #b76e79;
+        }
+        .logo img{
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+        .logo span {
+            display: flex;
+            align-items: center;
         }
         nav a {
             color: #444;
@@ -84,8 +96,8 @@
         }
         .service {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             padding: 15px;
             margin-bottom: 10px;
             background-color: #fff8f6;
@@ -125,7 +137,7 @@
   </head>
   <body>
     <nav>
-        <div class="logo">SalonSearcher</div>
+        <div class="logo"> <img src="S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
         <div>
             <a href="index.html">Home</a>
             <a href="browse.html">Find a Provider</a>
@@ -136,43 +148,50 @@
     <main class="profile">
         <div class="profile-card">
             <div class="profile-header">
-                <div class="profile-icon">&</div>
-                <h1>Heavenly Hair Studio</h1>
-                <div class="rating">***** 4.9</div>
+                <div class="profile-icon">♡</div>
+                <h1>Glass Skin Spa</h1>
+                <div class="rating"> ★ ★ ★ ★ ★ 4.8</div>
                 <p class="location">Greensboro, NC</p>
             </div>
             <div class="section">
                 <h2>About</h2>
-                <p>Heavenly Hair Studio provides professional hair services with a welcoming and serene environment</p>
+                <p>Glass Skin Spa is a serene skincare studio focused on helping every client to achieve healthy, radiant, glowing skin. Our professional estheticians offer personalized services with treatments tailored to each individual's needs and beauty. Our studio is a welcoming space for all to relax, refresh, and leave embracing your skin.</p>
             </div>
              <div class="section">
                 <h2>Services</h2>
                 <div class="service">
                     <div class="service-info">
-                        <h3>Haircut & Blowdry</h3>
-                        <p>Professional haircut of desired style and blowdry</p>
-                    </div>
-                    <div class="price">$70</div>
-                    <div class="service">
-                        <div class="service-info">
-                            <h3>Hair Color</h3>
-                            <p>Custom color and styling</p>
+                        <h3>Custom Facial</h3>
+                        <p>Includes a double-cleanse and a custom facial tailored to your target skin-concerns and goals.</p>
                         </div>
-                        <div class="price">$300</div>
-                    </div>
-                    <div class="service">
-                        <div class="service-info">
-                            <h3>Blowout</h3>
-                            <p>Shampoo, conditioning-treatment, and blowout</p>
-                        </div>
-                        <div class="price">$55</div>
-                    </div>
+                        <div class="price">$60</div>
                 </div>
-                <button class="book-button" onclick="window.location.href='booking.html'">Book an Appointment</button>
+                <div class="service">
+                    <div class="service-info">
+                        <h3>Brow Wax</h3>
+                        <p>Includes mapping and shaping of the brows.</p>
+                        </div>
+                        <div class="price">$30</div>
+                </div>
+                <div class="service">
+                    <div class="service-info">
+                        <h3>Arms & Legs Wax</h3>
+                        <p>Includes complete hair removal from the arms and legs.</p>
+                        </div>
+                        <div class="price">$80</div>
+                </div>
+                <div class="service">
+                    <div class="service-info">
+                        <h3>Lash Extensions</h3>
+                        <p>Includes cleansing of the natural lashes and individually placed extensions.</p><p>*Final price may vary depending on desired style*</p>
+                        </div>
+                        <div class="price">$85+</div>
+                </div>
+                <button class="book-button" onclick="window.location.href='book-skin.html'">Book an Appointment</button>
             </div>
         </main>
     <footer>
-        <p>2026 SalonSearcher</p>
+        <p>© 2026 SalonSearcher</p>
     </footer>
   </body>
 </html>
