@@ -74,8 +74,9 @@ public class Provider {
     @JsonIgnore
     private List<Review> reviews = new ArrayList<>();
 
-    // TODO once BeautyService has a `provider` field, add:
-    // @OneToMany(mappedBy = "provider") @JsonIgnore private List<BeautyService> beautyServices = new ArrayList<>();
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<BeautyService> beautyServices = new ArrayList<>();
 
     public Provider() {
     }
@@ -154,5 +155,9 @@ public class Provider {
 
     public List<Review> getReviews() {
         return reviews;
+    }
+
+    public List<BeautyService> getBeautyServices() {
+        return beautyServices;
     }
 }
