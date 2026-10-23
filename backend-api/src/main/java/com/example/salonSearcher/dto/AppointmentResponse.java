@@ -1,13 +1,13 @@
 package com.example.salonSearcher.dto;
 
 import java.time.LocalDateTime;
+
 import com.example.salonSearcher.entity.Appointment;
-import com.example.salonSearcher.entity.Timeslot;
 
 public record AppointmentResponse(
         Long id,
-        String notes,
         String status,
+        String notes,
         String level,
         String location,
         Long customerId,
@@ -20,15 +20,17 @@ public record AppointmentResponse(
         LocalDateTime startTime,
         LocalDateTime endTime) {
 
-    public static AppointmentResponse from(Appointment appointment) {
-        Timeslot timeslot = appointment.getTimeslot();
-        return new AppointmentResponse(appointment.getId(), appointment.getNotes(), appointment.getStatus(),
-                appointment.getLevel(), appointment.getLocation(), appointment.getCustomer().getId(),
-                appointment.getCustomer().getName(), appointment.getBeautyService().getId(),
-                appointment.getBeautyService().getName(), appointment.getProvider().getId(),
-                appointment.getProvider().getName(),
-                timeslot == null ? null : timeslot.getId(),
-                timeslot == null ? null : timeslot.getStartTime(),
-                timeslot == null ? null : timeslot.getEndTime());
+    public static AppointmentResponse from(Appointment a) {
+        var slot = a.getTimeslot();
+        var provider = a.getProvider();
+        return new AppointmentResponse(
+                a.getId(), a.getStatus(), a.getNotes(), a.getLevel(), a.getLocation(),
+                a.getCustomer().getId(), a.getCustomer().getName(),
+                a.getBeautyService().getId(), a.getBeautyService().getName(),
+                provider != null ? provider.getId() : null,
+                provider != null ? provider.getName() : null,
+                slot != null ? slot.getId() : null,
+                slot != null ? slot.getStartTime() : null,
+                slot != null ? slot.getEndTime() : null);
     }
 }
