@@ -127,6 +127,12 @@ public class Appointment {
         }
     }
 
+    /** Derived: the provider is whoever offers the booked beauty service. */
+    @JsonIgnore
+    public Provider getProvider() {
+        return beautyService != null ? beautyService.getProvider() : null;
+    }
+
     public Review getReview() {
         return review;
     }

@@ -1,14 +1,12 @@
 package com.example.salonSearcher.controller;
 
 import com.example.salonSearcher.dto.*;
-import com.example.salonSearcher.entity.Appointment;
 import com.example.salonSearcher.service.CustomerService;
 import com.example.salonSearcher.service.ReviewService;
 import com.example.salonSearcher.service.AppointmentService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -79,7 +77,7 @@ public class CustomerController {
             @PathVariable Long appointmentId,
             @Valid @RequestBody ReviewRequest request) {
         ReviewResponse review = reviewService.create(customerId, appointmentId, request);
-        return ResponseEntity.created(URI.create("/api/trainers/" + review.trainerId()
+        return ResponseEntity.created(URI.create("/api/providers/" + review.providerId()
                 + "/reviews/" + review.id())).body(review);
     }
 }
