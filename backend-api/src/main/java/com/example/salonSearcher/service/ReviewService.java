@@ -1,5 +1,8 @@
 package com.example.salonSearcher.service;
 
+import com.example.salonSearcher.dto.ReviewReplyRequest;
+import com.example.salonSearcher.dto.ReviewRequest;
+import com.example.salonSearcher.dto.ReviewResponse;
 import com.example.salonSearcher.entity.Appointment;
 import com.example.salonSearcher.entity.Review;
 import com.example.salonSearcher.repository.AppointmentRepository;
@@ -8,10 +11,9 @@ import com.example.salonSearcher.repository.ProviderRepository;
 import com.example.salonSearcher.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDateTime;
 import java.util.List;
-import com.example.salonSearcher.dto.ReviewRequest;
-import com.example.salonSearcher.dto.ReviewResponse;
 
 @Service
 @Transactional
@@ -22,10 +24,10 @@ public class ReviewService {
     private final ProviderRepository providerRepository;
 
     public ReviewService(
-        ReviewRepository reviewRepository,
-        AppointmentRepository appointmentRepository,
-        CustomerRepository customerRepository,
-        ProviderRepository providerRepository) {
+            ReviewRepository reviewRepository,
+            AppointmentRepository appointmentRepository,
+            CustomerRepository customerRepository,
+            ProviderRepository providerRepository) {
         this.reviewRepository = reviewRepository;
         this.appointmentRepository = appointmentRepository;
         this.customerRepository = customerRepository;
@@ -52,9 +54,30 @@ public class ReviewService {
         review.setCustomer(appointment.getCustomer());
         review.setProvider(appointment.getProvider());
         review.setRating(request.rating());
+        review.setComments(request.comments());
         review.setReviewDate(LocalDateTime.now());
         appointment.setReview(review);
         return ReviewResponse.from(reviewRepository.save(review));
+    }
+
+    @Transactional(readOnly = true)
+    public List<ReviewResponse> listAll() {
+        return reviewRepository.findAll().stream().map(ReviewResponse::from).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public ReviewResponse findById(Long id) {
+        return ReviewResponse.from(reviewRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Review " + id + " was not found.")));
+    }
+
+    public void delete(Long id) {
+        Review review = reviewRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Review " + id + " was not found."));
+        if (review.getAppointment() != null) {
+            review.getAppointment().setReview(null);
+        }
+        reviewRepository.delete(review);
     }
 
     @Transactional(readOnly = true)
@@ -62,7 +85,7 @@ public class ReviewService {
         if (!customerRepository.existsById(customerId)) {
             throw new NotFoundException("Customer " + customerId + " was not found.");
         }
-        return reviewRepository.findAllByCustomerIdOrderByCreatedAtDesc(customerId)
+        return reviewRepository.findAllByCustomerIdOrderByReviewDateDesc(customerId)
                 .stream().map(ReviewResponse::from).toList();
     }
 
@@ -71,7 +94,7 @@ public class ReviewService {
         if (!providerRepository.existsById(providerId)) {
             throw new NotFoundException("Provider " + providerId + " was not found.");
         }
-        return reviewRepository.findAllByProviderIdOrderByCreatedAtDesc(providerId)
+        return reviewRepository.findAllByProviderIdOrderByReviewDateDesc(providerId)
                 .stream().map(ReviewResponse::from).toList();
     }
 
