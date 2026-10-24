@@ -27,6 +27,7 @@ classDiagram
 
 ## Endpoints
 
+| Method | Path | Use case | Success | Implemented by |
 |---|---|---|---|---|
 | POST | /api/providers | Create provider profile | 201 | jnolte |
 | PUT | /api/providers/{id} | Modify provider profile | 200 | jnolte |
