@@ -39,44 +39,7 @@ classDiagram
 | POST | /api/customers/{customerId}/appointments | Book an appointment | 201 | Alexis (route), jnolte (booking logic) |
 | PUT | /api/appointments/{id} | Update an appointment | 200 | jnolte |
 
-### Customer, timeslot and review endpoints
-
-| Method | Path | Use case | Success | Implemented by |
-|---|---|---|---|---|
-| POST | /api/customers | Create customer profile | 201 | Alexis |
-| PUT | /api/customers/{id} | Modify customer profile | 200 | Alexis |
-| GET | /api/customers/{id} | View customer profile | 200 | Alexis |
-| GET | /api/customers/{id}/appointments | View a customer's appointments | 200 | Alexis |
-| GET | /api/customers/{id}/reviews | View a customer's reviews | 200 | Alexis |
-| POST | /api/customers/{customerId}/appointments/{appointmentId}/review | Review a completed appointment | 201 | Alexis |
-| POST | /api/providers/{providerId}/reviews/{reviewId}/replies | Provider replies to a review | 200 | Alexis (service), jnolte (route) |
-| POST | /api/providers/{providerId}/timeslots | Create a timeslot | 201 | Alexis (service), jnolte (route) |
-| PUT | /api/providers/{providerId}/timeslots/{timeslotId} | Modify a timeslot | 200 | Alexis (service), jnolte (route) |
-
-**POST /api/customers**
-```json
-{ "name": "Sam Lee", "email": "sam@example.com", "password": "secret123", "phoneNumber": "555-9999" }
-```
-
-**PUT /api/customers/{id}**
-```json
-{ "name": "Sam L.", "email": "sam@example.com", "phoneNumber": "555-0000" }
-```
-
-**POST /api/customers/{customerId}/appointments/{appointmentId}/review**
-```json
-{ "rating": 5, "comments": "Great cut!" }
-```
-
-**POST /api/providers/{providerId}/reviews/{reviewId}/replies**
-```json
-{ "replyText": "Thank you, see you again!" }
-```
-
-**POST /api/providers/{providerId}/timeslots** and **PUT /api/providers/{providerId}/timeslots/{timeslotId}**
-```json
-{ "startTime": "2026-12-01T10:00:00", "endTime": "2026-12-01T11:00:00", "isAvailable": true }
-```
+lexi add yours here
 
 ## Example request bodies
 
