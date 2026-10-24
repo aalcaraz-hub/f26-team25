@@ -1,127 +1,58 @@
 # SalonSearcher Backend API
 
-Spring Boot + JPA + PostgreSQL (Neon) API for the SalonSearcher team project, deployed on Render with Docker.
-
 **Live URL:** https://f26-team25.onrender.com
 
-> **Cold-start note:** the Render free instance sleeps when idle. The first request can take up to a minute. Open the URL (or send a `GET /api/providers`) once before using or demoing the API.
-
-Example: `GET https://f26-team25.onrender.com/api/providers`
+Note: the free Render instance sleeps when idle, so the first request can take up to a minute.
 
 ## UML class diagram
 
 ```mermaid
 classDiagram
-    class Customer {
-        Long id
-        String name
-        String email
-        String phoneNumber
-        String accountStatus
-    }
-    class Provider {
-        Long id
-        String name
-        String email
-        String phoneNumber
-        String accountStatus
-        String businessName
-        String address
-        String bio
-    }
-    class BeautyService {
-        Long id
-        String name
-        String description
-        BigDecimal price
-        Integer durationMinutes
-    }
-    class Timeslot {
-        Long id
-        LocalDateTime startTime
-        LocalDateTime endTime
-        Boolean isAvailable
-    }
-    class Appointment {
-        Long id
-        String status
-        String notes
-        String level
-        String location
-    }
-    class Review {
-        Long id
-        Integer rating
-        String comments
-        String replyText
-        LocalDateTime reviewDate
-    }
+    class Customer { Long id; String name; String email }
+    class Provider { Long id; String name; String businessName }
+    class BeautyService { Long id; String name; BigDecimal price }
+    class Timeslot { Long id; LocalDateTime startTime; Boolean isAvailable }
+    class Appointment { Long id; String status; String notes }
+    class Review { Long id; Integer rating; String replyText }
 
-    Provider "1" --> "0..*" BeautyService : offers
-    Provider "1" --> "0..*" Timeslot : publishes
-    Provider "1" --> "0..*" Review : receives
-    Customer "1" --> "0..*" Appointment : books
-    Customer "1" --> "0..*" Review : writes
-    BeautyService "1" --> "0..*" Appointment : booked in
-    Timeslot "1" --> "0..1" Appointment : reserved by
-    Appointment "1" --> "0..1" Review : reviewed in
+    Provider "1" --> "0..*" BeautyService
+    Provider "1" --> "0..*" Timeslot
+    Provider "1" --> "0..*" Review
+    Customer "1" --> "0..*" Appointment
+    Customer "1" --> "0..*" Review
+    BeautyService "1" --> "0..*" Appointment
+    Timeslot "1" --> "0..1" Appointment
+    Appointment "1" --> "0..1" Review
 ```
 
-## How to run locally
-
-```
-$env:SPRING_DATASOURCE_URL="jdbc:postgresql://<host>/<db>?sslmode=require"    # PowerShell
-./mvnw spring-boot:run                                                         # .\mvnw.cmd on Windows
-```
-
-The database connection string is supplied through environment variables only and is never committed to the repository.
-
-## API endpoints
-
-Base path: `/api`. Errors: invalid input returns **400**, a missing ID returns **404**, and a conflicting state returns **409**.
-
-### Provider (use cases: manage provider profile, view statistics, reply to reviews)
+## Endpoints
 
 | Method | Path | Description | Success | Implemented by |
 |---|---|---|---|---|
-| POST | `/api/providers` | Create provider profile | 201 | jnolte |
-| GET | `/api/providers` | List providers | 200 | jnolte |
-| GET | `/api/providers/{id}` | View one provider | 200 | jnolte |
-| PUT | `/api/providers/{id}` | Modify provider profile | 200 | jnolte |
-| DELETE | `/api/providers/{id}` | Delete provider (409 if it has appointments) | 204 | jnolte |
-| GET | `/api/providers/{id}/statistics` | View customer statistics | 200 | jnolte |
-| GET | `/api/providers/{providerId}/reviews` | View reviews of a provider | 200 | jnolte |
-| POST | `/api/providers/{providerId}/reviews/{reviewId}/replies` | Reply to a review | 200 | jnolte |
+| POST | /api/providers | Create provider profile | 201 | jnolte |
+| GET | /api/providers | List providers | 200 | jnolte |
+| GET | /api/providers/{id} | View provider | 200 | jnolte |
+| PUT | /api/providers/{id} | Modify provider profile | 200 | jnolte |
+| DELETE | /api/providers/{id} | Delete provider | 204 | jnolte |
+| GET | /api/providers/{id}/statistics | View customer statistics | 200 | jnolte |
+| GET | /api/providers/{providerId}/reviews | View reviews | 200 | jnolte |
+| POST | /api/providers/{providerId}/reviews/{reviewId}/replies | Reply to a review | 200 | jnolte |
+| POST | /api/services | Create a service | 201 | jnolte |
+| GET | /api/services | View available services | 200 | jnolte |
+| GET | /api/services/{id} | View one service | 200 | jnolte |
+| PUT | /api/services/{id} | Modify a service | 200 | jnolte |
+| DELETE | /api/services/{id} | Delete a service | 204 | jnolte |
+| POST | /api/customers/{customerId}/appointments | Book an appointment | 201 | jnolte |
+| GET | /api/appointments | List appointments | 200 | jnolte |
+| GET | /api/appointments/{id} | View one appointment | 200 | jnolte |
+| PUT | /api/appointments/{id} | Update an appointment | 200 | jnolte |
+| DELETE | /api/appointments/{id} | Delete an appointment | 204 | jnolte |
 
-### Beauty service (use cases: create a service, view available services)
-
-| Method | Path | Description | Success | Implemented by |
-|---|---|---|---|---|
-| POST | `/api/services` | Create a service for a provider | 201 | jnolte |
-| GET | `/api/services` | View available services (optional `?providerId=1`) | 200 | jnolte |
-| GET | `/api/services/{id}` | View one service | 200 | jnolte |
-| PUT | `/api/services/{id}` | Modify a service | 200 | jnolte |
-| DELETE | `/api/services/{id}` | Delete a service (409 if it has appointments) | 204 | jnolte |
-
-### Appointment (use cases: book an appointment, manage appointments)
-
-| Method | Path | Description | Success | Implemented by |
-|---|---|---|---|---|
-| POST | `/api/customers/{customerId}/appointments` | Book a service in an available timeslot | 201 | jnolte (booking logic), Alexis (route) |
-| GET | `/api/appointments` | List appointments (optional `?providerId=1&status=BOOKED`) | 200 | jnolte |
-| GET | `/api/appointments/{id}` | View one appointment | 200 | jnolte |
-| PUT | `/api/appointments/{id}` | Update status, notes, level or location (status `CANCELLED` frees the timeslot) | 200 | jnolte |
-| DELETE | `/api/appointments/{id}` | Delete an appointment and free its timeslot | 204 | jnolte |
-
-### Customer, timeslot and review endpoints
-
-Alexis adds her endpoints and user-story mappings here.
+Alexis adds her customer, timeslot and review endpoints here.
 
 ## Example request bodies
 
-Objects are linked by ID (for example `providerId`), not by nesting whole objects.
-
-**POST `/api/providers`**
+**POST /api/providers**
 ```json
 {
   "name": "Glow Studio",
@@ -134,15 +65,12 @@ Objects are linked by ID (for example `providerId`), not by nesting whole object
 }
 ```
 
-**PUT `/api/providers/{id}`** (all fields optional; only the ones sent are changed)
+**PUT /api/providers/{id}**
 ```json
-{
-  "businessName": "Glow Studio Deluxe",
-  "bio": "Hair, nails and lashes"
-}
+{ "businessName": "Glow Studio Deluxe", "bio": "Hair, nails and lashes" }
 ```
 
-**POST `/api/services`**
+**POST /api/services**
 ```json
 {
   "name": "Haircut",
@@ -153,7 +81,7 @@ Objects are linked by ID (for example `providerId`), not by nesting whole object
 }
 ```
 
-**PUT `/api/services/{id}`**
+**PUT /api/services/{id}**
 ```json
 {
   "name": "Haircut Deluxe",
@@ -163,35 +91,19 @@ Objects are linked by ID (for example `providerId`), not by nesting whole object
 }
 ```
 
-**POST `/api/customers/{customerId}/appointments`**
+**POST /api/customers/{customerId}/appointments**
 ```json
-{
-  "beautyServiceId": 1,
-  "timeslotId": 1,
-  "notes": "First visit",
-  "level": "Beginner",
-  "location": "Salon"
-}
+{ "beautyServiceId": 1, "timeslotId": 1, "notes": "First visit" }
 ```
 
-**PUT `/api/appointments/{id}`** (all fields optional)
+**PUT /api/appointments/{id}**
 ```json
-{
-  "status": "COMPLETED",
-  "notes": "Arrived on time"
-}
+{ "status": "COMPLETED" }
 ```
 
-**POST `/api/providers/{providerId}/reviews/{reviewId}/replies`**
+**POST /api/providers/{providerId}/reviews/{reviewId}/replies**
 ```json
-{
-  "replyText": "Thank you, see you again!"
-}
+{ "replyText": "Thank you, see you again!" }
 ```
 
-## Notes
-
-- Passwords are stored as plain text and are never returned in responses.
-- A timeslot can be booked once; booking an unavailable timeslot returns 409.
-- Data persists in Neon PostgreSQL.
-(`ddl-auto=update`).
+AI disclosure: Claude (Anthropic) helped fix compile errors and write parts of the service layer, repositories, DTOs, the Dockerfile and this README. I tested all endpoints myself.
