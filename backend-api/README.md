@@ -29,15 +29,15 @@ classDiagram
 
 | Method | Path | Use case | Success | Implemented by |
 |---|---|---|---|---|
-| POST | /api/providers | Create provider profile | 201 | jnolte |
-| PUT | /api/providers/{id} | Modify provider profile | 200 | jnolte |
-| GET | /api/providers/{id}/statistics | View customer statistics | 200 | jnolte |
-| POST | /api/services | Create a service | 201 | jnolte |
-| GET | /api/services | View available services | 200 | jnolte |
-| PUT | /api/services/{id} | Modify a service | 200 | jnolte |
-| DELETE | /api/services/{id} | Delete a service (moderation) | 204 | jnolte |
-| POST | /api/customers/{customerId}/appointments | Book an appointment | 201 | Alexis (route), jnolte (booking logic) |
-| PUT | /api/appointments/{id} | Update an appointment | 200 | jnolte |
+| POST | /api/providers | Create provider profile | 201 | Jordan |
+| PUT | /api/providers/{id} | Modify provider profile | 200 | Jordan |
+| GET | /api/providers/{id}/statistics | View customer statistics | 200 | Jordan |
+| POST | /api/services | Create a service | 201 | Jordan |
+| GET | /api/services | View available services | 200 | Jordan |
+| PUT | /api/services/{id} | Modify a service | 200 | Jordan |
+| DELETE | /api/services/{id} | Delete a service (moderation) | 204 | Jordan |
+| POST | /api/customers/{customerId}/appointments | Book an appointment | 201 | Alexis (route), Jordan (booking logic) |
+| PUT | /api/appointments/{id} | Update an appointment | 200 | Jordan |
 
 lexi add yours here
 
