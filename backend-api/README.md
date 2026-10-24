@@ -115,7 +115,7 @@ Base path: `/api`. Errors: invalid input returns **400**, a missing ID returns *
 
 ### Customer, timeslot and review endpoints
 
-Alexis adds her endpoints and user-story mappings here.
+Lexi add your endpoints and user-story mappings here.
 
 ## Example request bodies
 
