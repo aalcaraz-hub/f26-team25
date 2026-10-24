@@ -1,86 +1,31 @@
 # SalonSearcher Backend API
 
-Spring Boot + JPA + PostgreSQL (Neon) API for the SalonSearcher team project, deployed on Render with Docker.
-
 **Live URL:** https://f26-team25.onrender.com
 
-> **Cold-start note:** the Render free instance sleeps when idle. The first request can take up to a minute. Open the URL (or send a `GET /api/providers`) once before using or demoing the API.
-
-Example: `GET https://f26-team25.onrender.com/api/providers`
+Note: the free Render instance sleeps when idle, so the first request can take up to a minute.
 
 ## UML class diagram
 
 ```mermaid
 classDiagram
-    class Customer {
-        Long id
-        String name
-        String email
-        String phoneNumber
-        String accountStatus
-    }
-    class Provider {
-        Long id
-        String name
-        String email
-        String phoneNumber
-        String accountStatus
-        String businessName
-        String address
-        String bio
-    }
-    class BeautyService {
-        Long id
-        String name
-        String description
-        BigDecimal price
-        Integer durationMinutes
-    }
-    class Timeslot {
-        Long id
-        LocalDateTime startTime
-        LocalDateTime endTime
-        Boolean isAvailable
-    }
-    class Appointment {
-        Long id
-        String status
-        String notes
-        String level
-        String location
-    }
-    class Review {
-        Long id
-        Integer rating
-        String comments
-        String replyText
-        LocalDateTime reviewDate
-    }
+    class Customer { Long id; String name; String email }
+    class Provider { Long id; String name; String businessName }
+    class BeautyService { Long id; String name; BigDecimal price }
+    class Timeslot { Long id; LocalDateTime startTime; Boolean isAvailable }
+    class Appointment { Long id; String status; String notes }
+    class Review { Long id; Integer rating; String replyText }
 
-    Provider "1" --> "0..*" BeautyService : offers
-    Provider "1" --> "0..*" Timeslot : publishes
-    Provider "1" --> "0..*" Review : receives
-    Customer "1" --> "0..*" Appointment : books
-    Customer "1" --> "0..*" Review : writes
-    BeautyService "1" --> "0..*" Appointment : booked in
-    Timeslot "1" --> "0..1" Appointment : reserved by
-    Appointment "1" --> "0..1" Review : reviewed in
+    Provider "1" --> "0..*" BeautyService
+    Provider "1" --> "0..*" Timeslot
+    Provider "1" --> "0..*" Review
+    Customer "1" --> "0..*" Appointment
+    Customer "1" --> "0..*" Review
+    BeautyService "1" --> "0..*" Appointment
+    Timeslot "1" --> "0..1" Appointment
+    Appointment "1" --> "0..1" Review
 ```
 
-## How to run locally
-
-```
-$env:SPRING_DATASOURCE_URL="jdbc:postgresql://<host>/<db>?sslmode=require"    # PowerShell
-./mvnw spring-boot:run                                                         # .\mvnw.cmd on Windows
-```
-
-The database connection string is supplied through environment variables only and is never committed to the repository.
-
-## API endpoints
-
-Base path: `/api`. Errors: invalid input returns **400**, a missing ID returns **404**, and a conflicting state returns **409**.
-
-### Provider (use cases: manage provider profile, view statistics, reply to reviews)
+## Endpoints
 
 | Method | Path | Description | Success | Implemented by |
 |---|---|---|---|---|
@@ -119,9 +64,7 @@ Lexi add your endpoints and user-story mappings here.
 
 ## Example request bodies
 
-Objects are linked by ID (for example `providerId`), not by nesting whole objects.
-
-**POST `/api/providers`**
+**POST /api/providers**
 ```json
 {
   "name": "Glow Studio",
@@ -134,15 +77,12 @@ Objects are linked by ID (for example `providerId`), not by nesting whole object
 }
 ```
 
-**PUT `/api/providers/{id}`** (all fields optional; only the ones sent are changed)
+**PUT /api/providers/{id}**
 ```json
-{
-  "businessName": "Glow Studio Deluxe",
-  "bio": "Hair, nails and lashes"
-}
+{ "businessName": "Glow Studio Deluxe", "bio": "Hair, nails and lashes" }
 ```
 
-**POST `/api/services`**
+**POST /api/services**
 ```json
 {
   "name": "Haircut",
@@ -153,7 +93,7 @@ Objects are linked by ID (for example `providerId`), not by nesting whole object
 }
 ```
 
-**PUT `/api/services/{id}`**
+**PUT /api/services/{id}**
 ```json
 {
   "name": "Haircut Deluxe",
@@ -163,30 +103,19 @@ Objects are linked by ID (for example `providerId`), not by nesting whole object
 }
 ```
 
-**POST `/api/customers/{customerId}/appointments`**
+**POST /api/customers/{customerId}/appointments**
 ```json
-{
-  "beautyServiceId": 1,
-  "timeslotId": 1,
-  "notes": "First visit",
-  "level": "Beginner",
-  "location": "Salon"
-}
+{ "beautyServiceId": 1, "timeslotId": 1, "notes": "First visit" }
 ```
 
-**PUT `/api/appointments/{id}`** (all fields optional)
+**PUT /api/appointments/{id}**
 ```json
-{
-  "status": "COMPLETED",
-  "notes": "Arrived on time"
-}
+{ "status": "COMPLETED" }
 ```
 
-**POST `/api/providers/{providerId}/reviews/{reviewId}/replies`**
+**POST /api/providers/{providerId}/reviews/{reviewId}/replies**
 ```json
-{
-  "replyText": "Thank you, see you again!"
-}
+{ "replyText": "Thank you, see you again!" }
 ```
 
 ## Notes
