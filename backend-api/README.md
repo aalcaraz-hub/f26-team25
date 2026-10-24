@@ -29,38 +29,26 @@ classDiagram
 
 | Method | Path | Description | Success | Implemented by |
 |---|---|---|---|---|
-| POST | `/api/providers` | Create provider profile | 201 | jnolte |
-| GET | `/api/providers` | List providers | 200 | jnolte |
-| GET | `/api/providers/{id}` | View one provider | 200 | jnolte |
-| PUT | `/api/providers/{id}` | Modify provider profile | 200 | jnolte |
-| DELETE | `/api/providers/{id}` | Delete provider (409 if it has appointments) | 204 | jnolte |
-| GET | `/api/providers/{id}/statistics` | View customer statistics | 200 | jnolte |
-| GET | `/api/providers/{providerId}/reviews` | View reviews of a provider | 200 | jnolte |
-| POST | `/api/providers/{providerId}/reviews/{reviewId}/replies` | Reply to a review | 200 | jnolte |
+| POST | /api/providers | Create provider profile | 201 | jnolte |
+| GET | /api/providers | List providers | 200 | jnolte |
+| GET | /api/providers/{id} | View provider | 200 | jnolte |
+| PUT | /api/providers/{id} | Modify provider profile | 200 | jnolte |
+| DELETE | /api/providers/{id} | Delete provider | 204 | jnolte |
+| GET | /api/providers/{id}/statistics | View customer statistics | 200 | jnolte |
+| GET | /api/providers/{providerId}/reviews | View reviews | 200 | jnolte |
+| POST | /api/providers/{providerId}/reviews/{reviewId}/replies | Reply to a review | 200 | jnolte |
+| POST | /api/services | Create a service | 201 | jnolte |
+| GET | /api/services | View available services | 200 | jnolte |
+| GET | /api/services/{id} | View one service | 200 | jnolte |
+| PUT | /api/services/{id} | Modify a service | 200 | jnolte |
+| DELETE | /api/services/{id} | Delete a service | 204 | jnolte |
+| POST | /api/customers/{customerId}/appointments | Book an appointment | 201 | jnolte |
+| GET | /api/appointments | List appointments | 200 | jnolte |
+| GET | /api/appointments/{id} | View one appointment | 200 | jnolte |
+| PUT | /api/appointments/{id} | Update an appointment | 200 | jnolte |
+| DELETE | /api/appointments/{id} | Delete an appointment | 204 | jnolte |
 
-### Beauty service (use cases: create a service, view available services)
-
-| Method | Path | Description | Success | Implemented by |
-|---|---|---|---|---|
-| POST | `/api/services` | Create a service for a provider | 201 | jnolte |
-| GET | `/api/services` | View available services (optional `?providerId=1`) | 200 | jnolte |
-| GET | `/api/services/{id}` | View one service | 200 | jnolte |
-| PUT | `/api/services/{id}` | Modify a service | 200 | jnolte |
-| DELETE | `/api/services/{id}` | Delete a service (409 if it has appointments) | 204 | jnolte |
-
-### Appointment (use cases: book an appointment, manage appointments)
-
-| Method | Path | Description | Success | Implemented by |
-|---|---|---|---|---|
-| POST | `/api/customers/{customerId}/appointments` | Book a service in an available timeslot | 201 | jnolte (booking logic), Alexis (route) |
-| GET | `/api/appointments` | List appointments (optional `?providerId=1&status=BOOKED`) | 200 | jnolte |
-| GET | `/api/appointments/{id}` | View one appointment | 200 | jnolte |
-| PUT | `/api/appointments/{id}` | Update status, notes, level or location (status `CANCELLED` frees the timeslot) | 200 | jnolte |
-| DELETE | `/api/appointments/{id}` | Delete an appointment and free its timeslot | 204 | jnolte |
-
-### Customer, timeslot and review endpoints
-
-Lexi add your endpoints and user-story mappings here.
+Alexis adds her customer, timeslot and review endpoints here.
 
 ## Example request bodies
 
@@ -117,10 +105,3 @@ Lexi add your endpoints and user-story mappings here.
 ```json
 { "replyText": "Thank you, see you again!" }
 ```
-
-## Notes
-
-- Passwords are stored as plain text and are never returned in responses.
-- A timeslot can be booked once; booking an unavailable timeslot returns 409.
-- Data persists in Neon PostgreSQL.
-(`ddl-auto=update`).
