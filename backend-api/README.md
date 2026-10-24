@@ -39,7 +39,17 @@ classDiagram
 | POST | /api/customers/{customerId}/appointments | Book an appointment | 201 | Alexis (route), Jordan (booking logic) |
 | PUT | /api/appointments/{id} | Update an appointment | 200 | Jordan |
 
-lexi add yours here
+| Method | Path | Use case | Success | Implemented by |
+|---|---|---|---|---|
+| POST | /api/customers | Create customer profile | 201 | Alexis |
+| POST | /api/providers/{providerId}/timeslots | Create timeslot | 200 | Alexis |
+| POST | /api/customers/{customerId}/appointments{appointmentId}/review | Customer leaves review | 201 | Alexis |
+| GET | /api/providers/{providerId}/reviews | View provider reviews | 200 | Alexis |
+| POST | /api/providers{providerId}/reviews{reviewId}/replies | Reply to review | 200 | Alexis |
+| POST | /api/customers/{customerId}/appointments | Book Appointment | 201 | Alexis (route), Jordan (booking logic) |
+| GET | /api/appointments | List appointments | 200 | Alexis |
+| GET | /api/appointments/{appointmentId} | Get appointment | 200 | Alexis |
+| PUT | /api/appointments/{appointmentId} | Complete appointment | 200 | Alexis |
 
 ## Example request bodies
 
@@ -95,4 +105,44 @@ lexi add yours here
 **POST /api/providers/{providerId}/reviews/{reviewId}/replies**
 ```json
 { "replyText": "Thank you, see you again!" }
+```
+**POST /api/customers**
+```json
+{
+  "name": "Sam Lee",
+  "email": "sam@example.com",
+  "password": "secret123",
+  "phoneNumber": "555-1234"
+}
+```
+**POST /api/providers/{providerId}/timeslots**
+```json
+{
+  "startTime": "2026-12-01T10:00:00",
+  "endTime": "2026-12-01T11:00:00",
+  "isAvailable": true
+}
+```
+**POST /api/customers{customerId}/appointments/{appointmentId}/review**
+```json
+{
+  "rating": "5",
+  "comments": "Great cut!"
+}
+```
+**POST /api/customers/{customerId}/appointments**
+```json
+{
+  "beautyServiceId": {{serviceId}},
+  "timeslotId": {{timeslotId}},
+  "notes": "First visit",
+  "level": "Beginner",
+  "location": "Salon"
+}
+```
+**PUT /api/appointments/{appointmentId}**
+```json
+{
+  "status": "COMPLETED"
+}
 ```
