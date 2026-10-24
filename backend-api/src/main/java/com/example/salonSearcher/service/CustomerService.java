@@ -24,6 +24,7 @@ public class CustomerService {
         Customer customer = new Customer();
         customer.setName(request.name().trim());
         customer.setEmail(request.email().trim().toLowerCase(Locale.ROOT));
+        customer.setPassword(request.password());
         customer.setAccountStatus("ACTIVE");
         customer.setPhoneNumber(request.phoneNumber());
         return CustomerResponse.from(customerRepository.save(customer));
