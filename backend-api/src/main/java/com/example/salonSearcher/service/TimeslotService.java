@@ -9,9 +9,6 @@ import com.example.salonSearcher.repository.ProviderRepository;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
-import com.example.salonSearcher.service.BadRequestException;
-import com.example.salonSearcher.service.ConflictException;
-import com.example.salonSearcher.service.NotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
