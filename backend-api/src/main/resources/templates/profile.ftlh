@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SalonSearcher - My Profile</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f6;
+            color: #333;
+        }
+         nav {
+            background-color: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #b76e79;
+        }
+        .logo img{
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+        .logo span {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            color: #444;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+        nav a:hover {
+            color: #b76e79; 
+        }
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #5a4145;
+            margin-bottom: 10px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+        }
+        .card h2 {
+            color: #5a4145;
+            margin-bottom: 20px;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .avatar {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background-color: #f1cbd0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #5a4145;
+        }
+        .profile-header h2 {
+            margin-bottom: 5px;
+        }
+        .profile header p {
+            color: #666;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color:#5a4145
+        }
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+        .save-button, .review-button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .save-button {
+            background-color: #b76e79;
+            color: white;
+        }
+        .save-button:hover {
+            background-color: #965761;
+        }
+        .appointment {
+            background-color: #fff8f6;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .appointment h3 {
+            color: #b76e79;
+            margin-bottom: 10px;
+        }
+        .appointment p {
+            margin-bottom: 7px;
+        }
+        .review-button {
+            margin-top: 15px;
+            background-color: #f1cbd0;
+            color: #5a4145;
+        }
+        .review-button:hover {
+            background-color: #e7b3ba;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #5a4145;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <div class="logo"> <img src="S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="browse.html">Find a Provider</a>
+            <a href="/profile">My Profile</a>
+            <a href="/register">Create Account</a>
+        </div>
+    </nav>
+    <main class="container">
+        <h1>My Profile</h1>
+        <#if successMessage??>
+            <p class="message">${successMessage}</p>
+        </#if>
+
+        <section class="card">
+            <div class="profile-header">
+                <div class="avatar">✿</div>
+                <div>
+                    <h2>${customer.name()}</h2>
+                    <p>Customer Account</p>
+                </div>
+            </div>
+            <h2>Manage Profile</h2>
+            <form action="/profile" method="POST">
+                <input type="hidden" name="customerId" value="${customer.id()}">
+        
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" value="${customer.name()}">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phoneNumber" value="${customer.phoneNumber()}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="${customer.email()}">
+            </div>
+            <button class="save-button" type="submit" onclick="alert('Your profile has been saved!')">Save Changes</button>
+            </form>
+        </section>
+        <section class="card">
+            <h2>Upcoming Appointments</h2>
+            <div class="appointment">
+                <h3>Heavenly Hair Studio</h3>
+                <p><strong>Service: </strong>Haircut</p>
+                <p><strong>Date: </strong>October 3rd, 2026</p>
+                <p><strong>Time: </strong>10:30 AM</p>
+                <p><strong>Location: </strong>Greensboro, NC</p>
+            </div>
+            <div class="appointment">
+                <h3>Glass Skin Spa</h3>
+                <p><strong>Service: </strong>Lash Extensions</p>
+                <p><strong>Date: </strong>October 11th, 2026</p>
+                <p><strong>Time: </strong>4:30 PM</p>
+                <p><strong>Location: </strong>Greensboro, NC</p>
+            </div>
+        </section>
+        <section class="card">
+            <h2>Past Appointments</h2>
+            <div class="appointment">
+                <h3>Heavenly Hair Studio</h3>
+                <p><strong>Service: </strong>Hair Color</p>
+                <p><strong>Date: </strong>September 19th, 2026</p>
+                <p><strong>Time: </strong>12:00 PM</p>
+                <p><strong>Location: </strong>Greensboro, NC</p>
+                <button class="review-button" onclick="window.location.href='review.html'">Leave a Review</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 SalonSearcher</p>
+    </footer>
+  </body>
+</html>

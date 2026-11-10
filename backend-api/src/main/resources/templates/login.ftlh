@@ -119,8 +119,8 @@
         <div>
             <a href="index.html">Home</a>
             <a href="browse.html">Find a Provider</a>
-            <a href="profile.html">My Profile</a>
-            <a href="login.html">Create Account</a>
+            <a href="/profile">My Profile</a>
+            <a href="/register">Create Account</a>
         </div>
     </nav>
     <div class="container">
