@@ -107,6 +107,12 @@ public class AppointmentService {
         return AppointmentResponse.from(appointmentRepository.save(a));
     }
 
+    public AppointmentResponse complete(Long id) {
+        Appointment appointment = getOrThrow(id);
+        appointment.setStatus("COMPLETED");
+        return AppointmentResponse.from(appointmentRepository.save(appointment));
+    }
+
     public void delete(Long id) {
         Appointment a = getOrThrow(id);
         if (a.getTimeslot() != null) {

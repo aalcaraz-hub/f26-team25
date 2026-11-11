@@ -37,31 +37,25 @@
         
         <section class="card">
             <h2>Upcoming Appointments</h2>
-            <div class="appointment">
-                <h3>Heavenly Hair Studio</h3>
-                <p><strong>Service: </strong>Haircut</p>
-                <p><strong>Date: </strong>October 3rd, 2026</p>
-                <p><strong>Time: </strong>10:30 AM</p>
-                <p><strong>Location: </strong>Greensboro, NC</p>
-            </div>
-            <div class="appointment">
-                <h3>Glass Skin Spa</h3>
-                <p><strong>Service: </strong>Lash Extensions</p>
-                <p><strong>Date: </strong>October 11th, 2026</p>
-                <p><strong>Time: </strong>4:30 PM</p>
-                <p><strong>Location: </strong>Greensboro, NC</p>
-            </div>
-        </section>
-        <section class="card">
-            <h2>Past Appointments</h2>
-            <div class="appointment">
-                <h3>Heavenly Hair Studio</h3>
-                <p><strong>Service: </strong>Hair Color</p>
-                <p><strong>Date: </strong>September 19th, 2026</p>
-                <p><strong>Time: </strong>12:00 PM</p>
-                <p><strong>Location: </strong>Greensboro, NC</p>
-                <button class="review-button" onclick="window.location.href='review.html'">Leave a Review</button>
-            </div>
+            <#if appointments?? && appointments?has_content>
+                <#list appointments as appointment>
+                    <div class="card">
+                        <h3>${appointment.providerName!''}</h3>
+                        <p><strong>Service: </strong>${appointment.beautyServiceName!''}</p>
+                        <p><strong>Date: </strong>${appointment.startTime?string("MMMM d, yyyy")}</p>
+                        <p><strong>Time: </strong>${appointment.startTime?string("h:mm a")}</p>
+                        <p><strong>Status: </strong>${appointment.status!''}</p>
+                        <p><strong>Location: </strong>${appointment.location!''}</p>
+                        <#if appointment.status == "COMPLETED">
+                            <a class="review-button" href="/review?customerId=${appointment.customerId}&appointmentId=${appointment.id()}">
+                                <button class="review-button" type="button">Leave a Review</button>
+                            </a>
+                        </#if>
+                    </div>
+                </#list>
+                <#else>
+                    <p>No upcoming appointments.</p>
+            </#if>
         </section>
     </main>
 </@layout.page>
