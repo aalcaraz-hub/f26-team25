@@ -52,4 +52,9 @@ public class AppointmentController {
     public void delete(@PathVariable Long id) {
         appointmentService.delete(id);
     }
+
+    @PutMapping("/{id}/complete")
+    public AppointmentResponse complete(@PathVariable Long id) {
+        return appointmentService.complete(id);
+    }
 }
