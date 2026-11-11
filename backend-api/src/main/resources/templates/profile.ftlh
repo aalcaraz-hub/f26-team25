@@ -1,21 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SalonSearcher - My Profile</title>
-    <link rel="stylesheet" href="/styles.css">
-  </head>
-  <body>
-    <nav>
-        <div class="logo"> <img src="/images/S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
-        <div>
-            <a href="index.html">Home</a>
-            <a href="browse.html">Find a Provider</a>
-            <a href="/profile">My Profile</a>
-            <a href="/register">Create Account</a>
-        </div>
-    </nav>
+<#import "layout.ftlh" as layout>
+<@layout.page title="My Profile">
+
     <main class="container">
         <h1>My Profile</h1>
         <#if successMessage??>
@@ -47,8 +32,9 @@
                 <input type="email" id="email" name="email" value="${customer.email()}">
             </div>
             <button class="save-button" type="submit" onclick="alert('Your profile has been saved!')">Save Changes</button>
-            </form>
+        </form>
         </section>
+        
         <section class="card">
             <h2>Upcoming Appointments</h2>
             <div class="appointment">
@@ -78,8 +64,4 @@
             </div>
         </section>
     </main>
-    <footer>
-        <p>© 2026 SalonSearcher</p>
-    </footer>
-  </body>
-</html>
+</@layout.page>

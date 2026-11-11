@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SalonSearcher - Home</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f6;
+            color: #333;
+        }
+        nav {
+            background-color: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #b76e79;
+        }
+        .logo img{
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+        .logo span {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            color: #444;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+        nav a:hover {
+            color: #b76e79; 
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8dfe3, #fff8f6);
+        }
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 15px;
+            color: #5a4145
+        }
+        .hero p {
+            font-size: 18px;
+            color: #6b5a5d;
+            margin-bottom: 30px;
+        }
+        .search-box {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 12px;
+            border-radius: 12px;
+            display: flex;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        .search-box input {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+        .search-button {
+            background-color: #b76e79;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .search-button:hover {
+            background-color: #965761;
+        }
+        .section {
+            padding: 55px 8%;
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #5a4145; 
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            width: 320px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+        .card h3 {
+            color: #b76e79;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: #666;
+            margin-bottom: 18px;
+        }
+        .card button {
+            background-color: #f1cbd0;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 7px;
+            cursor: pointer;
+            color: #5a4145;
+        }
+        .card button:hover {
+            background-color: #e7b3ba;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #5a4145;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <div class="logo"> <img src="/images/S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
+        <div>
+            <a href="/browse">Find a Provider</a>
+            <a href="/profile">My Profile</a>
+            <a href="/customers">Create Account</a>
+        </div>
+    </nav>
+    <section class="hero">
+        <h1>Find Your Perfect Beauty Service</h1>
+        <p>Discover local beauty professionals and book your next appointment.</p>
+        <div class="search-box">
+            <input type="text" placeholder="Search for a service...">
+            <button class="search-button" onclick="window.location.href='/browse'">Search</button>
+        </div>
+    </section>
+    <section class="section">
+        <h2>Browse Beauty Providers</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Cosmotologists</h3>
+                <img src ="/images/hair.jpg" alt="Hair">
+                <p>Find hairstylists that specialize in cuts, color, and more.</p>
+                <button onclick="window.location.href='/browse'">Explore</button>
+            </div>
+            <div class="card">
+                <h3>Manicurists</h3>
+                <img src ="/images/nails.jpg" alt="Nails">
+                <p>Find nail technicians that specialize in manicures and pedicures.</p>
+                <button onclick="window.location.href='/browse'">Explore</button>
+            </div>
+            <div class="card">
+                <h3>Estheticians</h3>
+                <img src ="/images/skin.jpg" alt="Skin">
+                <p>Find estheticians that specialize in waxing, facials, lashes, and more.</p>
+                <button onclick="window.location.href='/browse'">Explore</button>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <h2>How SalonSearcher Works</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>1. Search</h3>
+                <p>Browse beauty professionals and services.</p>
+            </div>
+            <div class="card">
+                <h3>2. Book</h3>
+                <p>Select a service and choose an available appointment.</p>
+            </div>
+            <div class="card">
+                <h3>3. Review</h3>
+                <p>Leave a review after your appointment.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2026 SalonSearcher</p>
+    </footer>
+  </body>
+</html>

@@ -26,18 +26,18 @@ public class CustomerUIController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/register")
+    @GetMapping("/customers")
     public String showRegistrationForm(Model model){
         model.addAttribute("customer", new CustomerRegistrationRequest("", "", "", ""));
         return "login";  
     }
 
-    @PostMapping("/register")
+    @PostMapping("/customers")
     public String registerCustomer(@Valid @ModelAttribute("customer") CustomerRegistrationRequest request, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes){
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("errorMessage", "Please correct the errors in the form.");
 
-            return "redirect:/register";
+            return "redirect:/customers";
         }
         try {
             CustomerResponse customer = customerService.register(request);
@@ -49,7 +49,7 @@ public class CustomerUIController {
             return "redirect:/profile";
         } catch (RuntimeException e) {
             redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
-            return "redirect:/register";
+            return "redirect:/customers";
         }
     }
 
@@ -74,4 +74,30 @@ public class CustomerUIController {
             return "redirect:/profile";
         }
     }
+
+    @GetMapping("/")
+    public String showHome(){
+        return "index";
+    }
+
+    @GetMapping("/browse")
+    public String showBrowse(){
+        return "browse";
+    }
+    
+    @GetMapping("/provider-hair")
+    public String showProviderHair(){
+        return "provider-hair";
+    }
+
+    @GetMapping("/provider-nails")
+    public String showProviderNails(){
+        return "provider-nails";
+    }
+
+    @GetMapping("/provider-skin")
+    public String showProviderSkin(){
+        return "provider-skin";
+    }
+    
 }

@@ -1,21 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SalonSearcher - Create Account</title>
-    <link rel="stylesheet" href="/styles.css">
-  </head>
-  <body>
-    <nav>
-        <div class="logo"> <img src="/images/S.png" alt="SalonSearcher Logo"><span>SalonSearcher</span></div>
-        <div>
-            <a href="index.html">Home</a>
-            <a href="browse.html">Find a Provider</a>
-            <a href="/profile">My Profile</a>
-            <a href="/register">Create Account</a>
-        </div>
-    </nav>
+<#import "layout.ftlh" as layout>
+<@layout.page title="Create Account" bodyClass="login-page">
+
     <div class="container">
         <h1>Create Your Account</h1>
         <p class="subtitle">Join SalonSearcher to find beauty providers and book appointments</p>
@@ -28,7 +13,7 @@
                 <p class="message">${errorMessage}</p>
             </#if>
 
-            <form action="/register" method="POST" onsubmit="return validatePassword()">
+            <form action="/customers" method="POST" onsubmit="return validatePassword()">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name">
                 <label for="phone">Phone Number</label>
@@ -46,9 +31,6 @@
 
         </div>
     </div>
-    <footer>
-        <p>© 2026 SalonSearcher</p>
-    </footer>
     <script>
         function validatePassword() {
             const password = document.getElementById("password").value;
@@ -60,5 +42,4 @@
             return true;
         }
     </script>
-  </body>
-</html>
+</@layout.page>
