@@ -2,18 +2,16 @@ package com.example.salonSearcher.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.validation.BindingResult;
-
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import com.example.salonSearcher.dto.BookRequest;
 import com.example.salonSearcher.dto.CustomerRegistrationRequest;
 import com.example.salonSearcher.dto.CustomerResponse;
 import com.example.salonSearcher.dto.CustomerUpdateRequest;
@@ -120,6 +118,41 @@ public class CustomerUIController {
     public String showProviderSkin(){
         return "provider-skin";
     }
+
+    @GetMapping("/booking")
+    public String showBookingPage(HttpSession session){
+        Long customerId = (Long) session.getAttribute("customerId");
+        if (customerId == null) {
+            return "redirect:/customers";
+        }
+        return "booking";
+    }
+
+    @PostMapping("/booking")
+    public String bookAppointment(
+        @RequestParam Long beautyServiceId,
+        @RequestParam Long timeslotId,
+        @RequestParam(required = false, defaultValue = "") String notes,
+        @RequestParam(required = false, defaultValue = "") String level,
+        @RequestParam(required = false, defaultValue = "") String location,
+        HttpSession session,
+        RedirectAttributes redirectAttributes
+    ) {
+        Long customerId = (Long) session.getAttribute("customerId");
+        if (customerId == null) {
+            return "redirect:/customers";
+        }
+        try {
+            BookRequest request = new BookRequest(beautyServiceId, timeslotId, notes, level, location);
+            appointmentService.book(customerId, request);
+            redirectAttributes.addFlashAttribute("successMessage", "Your appointment has been booked successfully!");
+            return "redirect:/profile";
+        } catch (RuntimeException e) {
+            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+            return "redirect:/booking";
+        }
+    }
+    
     
     @GetMapping("/review")
     public String showReviewPage(@RequestParam Long customerId, @RequestParam Long appointmentId, Model model){

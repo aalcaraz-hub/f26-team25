@@ -36,7 +36,7 @@
                         </div>
                         <div class="price">$300+</div>
                 </div>
-                <button class="book-button" onclick="window.location.href='book-hair.html'">Book an Appointment</button>
+                <button class="book-button" onclick="window.location.href='/booking'">Book an Appointment</button>
             </div>
         </div>
     </main>

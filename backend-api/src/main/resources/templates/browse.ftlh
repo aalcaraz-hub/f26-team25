@@ -28,7 +28,7 @@
             <div class="rating"> ★ ★ ★ ★ ★ 4.9</div>
             <p><strong>Services: </strong>Haircuts, Color, Blowouts</p>
             <p><strong>Location: </strong>Greensboro, NC</p>
-            <button class="view-button"onclick="window.location.href='/provider-hair'">View Profile</button>
+            <button class="view-button" onclick="window.location.href='/provider-hair'">View Profile</button>
         </div>
         </div>
         <div class="provider-card">
