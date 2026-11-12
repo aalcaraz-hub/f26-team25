@@ -661,3 +661,124 @@
             color: white;
             margin-top: 30px;
         }
+
+/* Booking page styles */
+         * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f6;
+            color: #333;
+        }
+        nav {
+            background-color: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #b76e79;
+        }
+        .logo img{
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+        .logo span {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            color: #444;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+        nav a:hover {
+            color: #b76e79; 
+        }
+        .booking-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .booking-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #5a4145;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .provider {
+            background-color: #fff0f2;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .provider h2 {
+            color: #b76e79;
+            margin-bottom: 5px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color:#5a4145
+        }
+        select, input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+        .row .form-group {
+            flex: 1;
+        }
+        .confirm-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #b76e79;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .confirm-button:hover {
+            background-color: #965761;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #5a4145;
+            color: white;
+            margin-top: 30px;
+        }

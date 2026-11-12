@@ -207,7 +207,7 @@
         </div>
     </section>
     <footer>
-        <p>© 2026 SalonSearcher</p>
+        <p>© 2026 SalonSearcher. All rights reserved.</p>
     </footer>
   </body>
 </html>
