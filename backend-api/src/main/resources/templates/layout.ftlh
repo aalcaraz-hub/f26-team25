@@ -17,6 +17,7 @@
             <a href="/browse">Find a Provider</a>
             <a href="/profile">My Profile</a>
             <a href="/customers">Create Account</a>
+            <a href="/provider/profile">For Providers</a>
         </div>
     </nav>
     <#nested>
