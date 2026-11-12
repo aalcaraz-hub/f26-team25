@@ -45,5 +45,12 @@
                 <button class="save-button" type="submit">Save Changes</button>
             </form>
         </section>
+        <section class="card">
+            <h2>My Services</h2>
+            <p>Add, edit, or remove the services customers can book.</p>
+            <form action="/provider/services" method="GET">
+                <button class="save-button" type="submit">Manage My Services</button>
+            </form>
+        </section>
     </main>
 </@layout.page>
