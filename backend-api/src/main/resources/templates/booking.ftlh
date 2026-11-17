@@ -8,6 +8,9 @@
   </head>
     <main class="booking-container">
         <div class="booking-card">
+            <#if errorMessage??>
+                <p style="color: red;">${errorMessage}</p>
+            </#if>
             <h1>Book an Appointment</h1>
             <p class="subtitle">Choose a service, date, and available time.</p>
             <div class="provider">
@@ -18,13 +21,21 @@
         <div class="form-group">
             <label for="service">Choose a service</label>
             <select id="service" name="beautyServiceId" required>
-                <option value="5">Vivid color - $300+</option>
+                <#list beautyServices as service>
+                <option value="${service.id}">${service.name} - $${service.price}</option>
+                </#list>
             </select>
+        </div>
+        <div class="form-group">
+            <label for="date">Choose a date</label>
+            <input type="date" id="date" name="date" required>
         </div>
         <div class="form-group">
             <label for="timeslot">Choose an available time</label>
             <select id="timeslot" name="timeslotId" required>
-                <option value="4">9:00 AM</option>
+                <#list timeslots as timeslot>
+                <option value="${timeslot.id}" data-date="${timeslot.startTime}"> ${timeslot.formattedStartTime}</option>
+                </#list>
             </select>
         </div>
         <div class="form-group">
@@ -37,4 +48,26 @@
     </form>
     </div>
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dateInput = document.getElementById("date");
+            const timeslotSelect = document.getElementById("timeslot");
+
+            const timeOptions = Array.from(timeslotSelect.options);
+
+            function filterTimeslots() {
+                const selectedDate = dateInput.value;
+                timeslotSelect.innerHTML = "";
+                timeOptions.forEach(option => {
+                    const slotDate = option.dataset.date.substring(0, 10);
+                    if (slotDate === selectedDate) {
+                        timeslotSelect.add(option.cloneNode(true));
+                    }
+                });
+            }
+            dateInput.addEventListener("change", filterTimeslots);
+            filterTimeslots();
+        });
+    </script>
 </@layout.page>
