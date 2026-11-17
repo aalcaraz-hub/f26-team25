@@ -36,7 +36,7 @@
         <section class="card">
             <h2>Upcoming Appointments</h2>
             <#if appointments?? && appointments?has_content>
-                <#list appointments as appointment>
+                <#list appointments?filter(a -> a.status() == "BOOKED") as appointment>
                     <div class="appointment">
                         <h3>${appointment.providerName()!''}</h3>
                         <p><strong>Service: </strong>${appointment.beautyServiceName()!''}</p>
@@ -44,8 +44,13 @@
                         <p><strong>Time: </strong>${appointment.startTime()?datetime("yyyy-MM-dd'T'HH:mm")?string("h:mm a")}</p>
                         <p><strong>Status: </strong>${appointment.status()!''}</p>
                         <p><strong>Location: </strong>${appointment.location()!''}</p>
+                        <#if appointment.status() == "BOOKED">
+                            <form action="/appointments/${appointment.id()}/cancel" method="POST" onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
+                                <button class="save-button" type="submit">Cancel Appointment</button>
+                            </form>
+                        </#if>
                         <#if appointment.status() == "COMPLETED">
-                            <a class="review-button" href="/review?customerId=${appointment.customerId()}&appointmentId=${appointment.id()}">
+                            <a class="review-button" href="/">
                                 <button class="review-button" type="button">Leave a Review</button>
                             </a>
                         </#if>
