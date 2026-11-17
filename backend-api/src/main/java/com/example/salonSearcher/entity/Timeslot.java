@@ -15,6 +15,7 @@ import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "timeslots")
@@ -102,5 +103,9 @@ public class Timeslot {
 
     public void setAppointment(Appointment appointment) {
         this.appointment = appointment;
+    }
+
+    public String getFormattedStartTime() {
+        return startTime.format(DateTimeFormatter.ofPattern("h:mm a"));
     }
 }

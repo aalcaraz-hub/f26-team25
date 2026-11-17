@@ -88,6 +88,7 @@ public class AppointmentService {
         appointment.setLevel(req.level());
         appointment.setLocation(req.location());
         slot.setIsAvailable(false);
+        timeslotRepository.save(slot);
         appointment.setTimeslot(slot);
         return AppointmentResponse.from(appointmentRepository.save(appointment));
     }

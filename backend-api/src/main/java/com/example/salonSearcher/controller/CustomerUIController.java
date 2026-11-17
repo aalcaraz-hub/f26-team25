@@ -1,6 +1,5 @@
 package com.example.salonSearcher.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +19,8 @@ import com.example.salonSearcher.dto.ReviewRequest;
 import com.example.salonSearcher.service.ReviewService;
 import com.example.salonSearcher.service.AppointmentService;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.example.salonSearcher.repository.BeautyServiceRepository;
+import com.example.salonSearcher.repository.TimeslotRepository;
 
 @Controller
 @RequestMapping
@@ -27,13 +28,16 @@ public class CustomerUIController {
 
     private final CustomerService customerService;
     private final ReviewService reviewService;
-    @Autowired 
     private final AppointmentService appointmentService;
+    private final BeautyServiceRepository beautyServiceRepository;
+    private final TimeslotRepository timeslotRepository;
 
-    public CustomerUIController(CustomerService customerService, ReviewService reviewService, AppointmentService appointmentService) {
+    public CustomerUIController(CustomerService customerService, ReviewService reviewService, AppointmentService appointmentService, BeautyServiceRepository beautyServiceRepository, TimeslotRepository timeslotRepository) {
         this.customerService = customerService;
         this.reviewService = reviewService;
         this.appointmentService = appointmentService;
+        this.beautyServiceRepository = beautyServiceRepository;
+        this.timeslotRepository = timeslotRepository;
     }
 
     @GetMapping("/customers")
@@ -120,16 +124,19 @@ public class CustomerUIController {
     }
 
     @GetMapping("/booking")
-    public String showBookingPage(HttpSession session){
+    public String showBookingPage(HttpSession session, Model model) {
         Long customerId = (Long) session.getAttribute("customerId");
         if (customerId == null) {
             return "redirect:/customers";
         }
+        Long providerId = 1L;
+        model.addAttribute("beautyServices", beautyServiceRepository.findAllByProviderId(providerId));
+        model.addAttribute("timeslots", timeslotRepository.findAllByProviderIdAndIsAvailableTrueOrderByStartTime(providerId));
         return "booking";
     }
 
     @PostMapping("/booking")
-    public String book(
+    public String bookAppointment(
         @RequestParam Long beautyServiceId,
         @RequestParam Long timeslotId,
         @RequestParam(required = false, defaultValue = "") String notes,

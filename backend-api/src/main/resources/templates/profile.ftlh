@@ -40,8 +40,8 @@
                     <div class="appointment">
                         <h3>${appointment.providerName()!''}</h3>
                         <p><strong>Service: </strong>${appointment.beautyServiceName()!''}</p>
-                        <p><strong>Date: </strong>${appointment.startTime()!''}</p>
-                        <p><strong>Time: </strong>${appointment.startTime()!''}</p>
+                        <p><strong>Date: </strong>${appointment.startTime()?datetime("yyyy-MM-dd'T'HH:mm")?string("MMMM d, yyyy")}</p>
+                        <p><strong>Time: </strong>${appointment.startTime()?datetime("yyyy-MM-dd'T'HH:mm")?string("h:mm a")}</p>
                         <p><strong>Status: </strong>${appointment.status()!''}</p>
                         <p><strong>Location: </strong>${appointment.location()!''}</p>
                         <#if appointment.status() == "COMPLETED">
