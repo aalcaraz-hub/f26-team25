@@ -18,28 +18,13 @@
         <div class="form-group">
             <label for="service">Choose a service</label>
             <select id="service" name="beautyServiceId" required>
-                <option value="1">Blowout - $55</option>
-                <option value="2">Haircut - $60+</option>
-                <option value="3">Hair Color - $300+</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="date">Choose a date</label>
-            <select id="date" name="date" required>
-                <option value="1">November 10, 2026</option>
-                <option value="2">November 11, 2026</option>
-                <option value="3">November 12, 2026</option>
+                <option value="5">Vivid color - $300+</option>
             </select>
         </div>
         <div class="form-group">
             <label for="timeslot">Choose an available time</label>
             <select id="timeslot" name="timeslotId" required>
-                <option value="1">9:00 AM</option>
-                <option value="2">10:30 AM</option>
-                <option value="3">12:00 PM</option>
-                <option value="4">1:30 PM</option>
-                <option value="5">3:00 PM</option>
-                <option value="6">4:30 PM</option>
+                <option value="4">9:00 AM</option>
             </select>
         </div>
         <div class="form-group">

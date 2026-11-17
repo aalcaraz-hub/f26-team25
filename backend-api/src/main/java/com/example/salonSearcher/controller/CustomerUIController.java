@@ -129,7 +129,7 @@ public class CustomerUIController {
     }
 
     @PostMapping("/booking")
-    public String bookAppointment(
+    public String book(
         @RequestParam Long beautyServiceId,
         @RequestParam Long timeslotId,
         @RequestParam(required = false, defaultValue = "") String notes,
