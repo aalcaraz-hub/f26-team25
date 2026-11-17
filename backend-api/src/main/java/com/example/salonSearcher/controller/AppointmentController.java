@@ -57,4 +57,9 @@ public class AppointmentController {
     public AppointmentResponse complete(@PathVariable Long id) {
         return appointmentService.complete(id);
     }
+
+    @PutMapping("/{id}/cancel")
+    public AppointmentResponse cancel(@PathVariable Long id) {
+        return appointmentService.cancel(id);
+    }
 }

@@ -114,6 +114,17 @@ public class AppointmentService {
         return AppointmentResponse.from(appointmentRepository.save(appointment));
     }
 
+    public AppointmentResponse cancel(Long id) {
+        Appointment appointment = getOrThrow(id);
+
+        if (appointment.getTimeslot() != null) {
+            appointment.getTimeslot().setIsAvailable(true);
+            timeslotRepository.save(appointment.getTimeslot());
+        }
+        appointment.setStatus("CANCELLED");
+        return AppointmentResponse.from(appointmentRepository.save(appointment));
+    }
+
     public void delete(Long id) {
         Appointment a = getOrThrow(id);
         if (a.getTimeslot() != null) {

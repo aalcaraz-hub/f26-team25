@@ -21,6 +21,7 @@ import com.example.salonSearcher.service.AppointmentService;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.salonSearcher.repository.BeautyServiceRepository;
 import com.example.salonSearcher.repository.TimeslotRepository;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 @RequestMapping
@@ -160,7 +161,17 @@ public class CustomerUIController {
         }
     }
     
-    
+    @PostMapping("/appointments/{id}/cancel")
+    public String cancelAppointment(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        try {
+            appointmentService.cancel(id);
+            redirectAttributes.addFlashAttribute("successMessage", "Your appointment has been cancelled successfully!");
+        } catch (RuntimeException e) {
+            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+        }
+        return "redirect:/profile";
+    }
+
     @GetMapping("/review")
     public String showReviewPage(@RequestParam Long customerId, @RequestParam Long appointmentId, Model model){
         model.addAttribute("customerId", customerId);
